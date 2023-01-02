@@ -9,33 +9,53 @@
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
     <script src='../wireframe.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
+
   </head>
 
   <body>
 
     <header>
       <div>
-        <h1>Lunardo</h1>
-      
-      
-      Put company logo and name here</div>
+        <h1>Lunardo Cinemas</h1>
+      </div>
     </header>
 
-    <nav>
-      <div>Put website navigation links here</div>
-      <!-- trying out internal nav links -->
-      <a href="/main/">Main</a>
-      <a href="#about-us">About Us</a>
-    </nav>
-
+      <nav>
+        <div>
+          <ul>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#seats-and-prices">Seats and prices</a></li>
+            <li><a href="#now-showing">Now Showing</a></li>
+            <li><a href="/wp/a2/booking.php">Book</a></li>
+          </ul>
+        </div>
+      </nav>
+    
     <main>
       <article id='Website Under Construction'>
     <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
         <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
       </article>
+
+
+      <section id="about-us">
+        <h2>About Us</h2>
+      </section>
+
+      <section id="seats-and-prices">
+        <h2>Seats and prices</h2>
+      </section>
+
+      <section id="now-showing">
+        <h2>Now Showing</h2>
+      </section>
+      
     </main>
 
-    <section id="about-us">About Us</section>
+    
+    
+    
 
     <footer>
       <div>&copy;<script>

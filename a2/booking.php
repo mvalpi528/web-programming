@@ -9,16 +9,21 @@
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
     <script src='../wireframe.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
   </head>
 
   <body>
 
     <header>
-      <div>Put company logo and name here</div>
+      <div><h1>Lunardo Cinemas</h1></div>
     </header>
 
     <nav>
-      <div>Put website navigation links here</div>
+      <div>
+        <ul>
+          <li><a href="/wp/a2/index.php">Home</a></li>
+        </ul>
+      </div>
     </nav>
 
     <main>
@@ -26,6 +31,24 @@
     <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
         <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
       </article>
+
+    <form action="" target="_blank">
+
+      <h2>Book now</h2>
+      
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name">
+
+      <label for="last-name">Last Name:</label>
+      <input type="text">
+      <br>
+     
+      <label for="email">Email Address:</label>
+      <input type="email" id="email">
+
+    </form>
+
+
     </main>
     <footer>
       <div>&copy;<script>
