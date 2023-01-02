@@ -14,11 +14,18 @@
   <body>
 
     <header>
-      <div>Put company logo and name here</div>
+      <div>
+        <h1>Lunardo</h1>
+      
+      
+      Put company logo and name here</div>
     </header>
 
     <nav>
       <div>Put website navigation links here</div>
+      <!-- trying out internal nav links -->
+      <a href="/main/">Main</a>
+      <a href="#about-us">About Us</a>
     </nav>
 
     <main>
@@ -27,6 +34,8 @@
         <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
       </article>
     </main>
+
+    <section id="about-us">About Us</section>
 
     <footer>
       <div>&copy;<script>
