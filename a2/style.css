@@ -9,23 +9,25 @@ section {
   text-align: center;
 }
 
-#about-us {
-  background-color: aqua;
-}
-
 h2 {
   margin: 0 auto;
   text-align: center;
+  font-size: 4em;
 }
 
 body {
   font-family: "Questrial", sans-serif;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 header {
   width: 100%;
+  background-color: black;
+  color: white;
+}
+
+footer {
   background-color: black;
   color: white;
 }
@@ -64,4 +66,101 @@ nav a {
 nav a:hover {
   background-color: #fff;
   color: black;
+}
+
+/** Seats and prices **/
+
+.seat_prices {
+  margin: auto;
+}
+
+/** Now Showing **/
+
+.session_times_header {
+  font-size: 1.5em;
+}
+
+.session_times {
+  margin: auto;
+  padding: 1em;
+}
+
+/** How do I make these all align **/
+.movie_poster {
+  max-height: 80%;
+  max-width: 100%;
+  bottom: 0;
+}
+
+.booking_button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.booking_button:hover {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+/** panel styling **/
+
+.panels_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 100px;
+  justify-items: center;
+  align-items: space-around;
+}
+
+div.card3D {
+  box-sizing: border-box;
+
+  height: 500px;
+  width: 350px;
+  padding: 5px;
+  overflow: auto;
+
+  position: relative;
+}
+
+div.card3D > div {
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  box-sizing: border-box;
+  padding: 5px 10px;
+
+  /** allows you to adjust the positioning within the containing block **/
+  position: absolute;
+
+  transition: 4s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+div.card3D > div:nth-child(1) {
+  /** border: 4px red groove; **/
+
+  transform: rotateY(0deg);
+}
+
+div.card3D > div:nth-child(2) {
+  /** border: 4px blue groove; **/
+
+  transform: rotateY(180deg);
+  overflow: auto;
+}
+
+div.card3D:hover > div:nth-child(1) {
+  transform: rotateY(180deg);
+}
+
+div.card3D:hover > div:nth-child(2) {
+  transform: rotateY(360deg);
 }
