@@ -2,12 +2,41 @@
 /* This stylesheet is for your tested CSS, styles here will be deactivated when toggling wireframe style */
 html {
   scroll-behavior: smooth;
+  margin: 0;
 }
 
 section {
   min-height: 100vh;
+  min-width: 100vw;
   text-align: center;
 }
+
+body {
+  font-family: "Questrial", sans-serif;
+  background-color: white;
+  color: black;
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+main {
+  margin: 0;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+/**  **/
 
 h2 {
   margin: 0 auto;
@@ -15,28 +44,19 @@ h2 {
   font-size: 4em;
 }
 
-body {
-  font-family: "Questrial", sans-serif;
-  background-color: white;
-  color: black;
-}
+/** Images **/
 
-header {
-  width: 100%;
-  background-color: black;
-  color: white;
-}
-
-footer {
-  background-color: black;
-  color: white;
+.large-image {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: cover;
 }
 
 /* Nav Bar styling */
 
 nav {
   width: 100%;
-  height: 50px;
+  height: 60px;
   background-color: black;
   margin: 0 auto;
   position: sticky;
@@ -68,10 +88,45 @@ nav a:hover {
   color: black;
 }
 
+/** About Us **/
+#about-us {
+  margin-top: 5em;
+}
+
+.about_us_container {
+  margin: 0;
+}
+
+.about_us_content_item {
+  margin: 0;
+  padding: 50px;
+}
+
+.about-us-image {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
 /** Seats and prices **/
 
 .seat_prices {
   margin: auto;
+}
+
+.seats-and-prices-containter {
+  margin: auto;
+}
+
+.seats-and-prices-content-item {
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.seats-and-prices-image {
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 /** Now Showing **/
@@ -113,7 +168,7 @@ nav a:hover {
 
 .panels_container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   margin-top: 100px;
   justify-items: center;
   align-items: space-around;
@@ -139,7 +194,7 @@ div.card3D > div {
   /** allows you to adjust the positioning within the containing block **/
   position: absolute;
 
-  transition: 4s;
+  transition: 1s;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -163,4 +218,39 @@ div.card3D:hover > div:nth-child(1) {
 
 div.card3D:hover > div:nth-child(2) {
   transform: rotateY(360deg);
+}
+
+/** Booking form **/
+
+.booking_form {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+/** Media Queries **/
+
+/** Desktop **/
+@media (min-width: 1025px) {
+  .about_us_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seats-and-prices-containter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .panels_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 100px;
+    justify-items: center;
+    align-items: space-around;
+  }
+}
+
+/** Tablet **/
+@media (max-width: 800px) {
 }

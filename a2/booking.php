@@ -29,22 +29,36 @@
     <main>
       <article id='Website Under Construction'>
     <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-        <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
+       <!-- <img src='../../media/website-under-construction.png' alt='Website Under Construction' /> -->
       </article>
 
-    <form action="" target="_blank">
+    <form action="" target="_blank" class="booking_form">
 
       <h2>Book now</h2>
       
       <label for="first-name">First Name:</label>
+      <br>
       <input type="text" id="first-name">
+      <br>
 
       <label for="last-name">Last Name:</label>
+      <br>
       <input type="text">
       <br>
      
       <label for="email">Email Address:</label>
+      <br>
       <input type="email" id="email">
+      <br>
+
+      <label for="mobile-number">Mobile Number:</label>
+      <br>
+      <input type="number" id="mobile-number">
+      <br>
+
+      
+
+
 
     </form>
 

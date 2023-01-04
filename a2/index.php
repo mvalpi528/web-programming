@@ -16,9 +16,9 @@
   <body>
 
     <header>
-      <div>
+      
         <h1>Lunardo Cinemas</h1>
-      </div>
+     
     </header>
 
       <nav>
@@ -40,27 +40,38 @@
 
 
       <section id="about-us">
-        <h2>About Us</h2>
-        <h3>The Grand Re-Opening</h3>
-        <p>After extensive improvements Lunardo cinema is reopening</p>
-
-        <h3>What's New</h3>
-        <p>Enjoy your cinema experience in either our standard or first class seats</p>
-
-        
-        
-        <p>Dolby Atmos 3D sound</p>
-
-
-
+          <h2>About Us</h2>
+          <div class="about_us_container">
+            <div class="about_us_content_item">
+              <h3>The Grand Re-Opening</h3>
+              <p>After extensive improvements Lunardo cinema is reopening</p>
+            </div>
+            <div class="about_us_content_item">
+            <img src="../../media/couple-watching-movie.png" alt="Couple watching a movie" class="about-us-image">
+            </div>
+            <div class="about_us_content_item">
+              <h3>What's New</h3>
+              <p>Enjoy your cinema experience in either our standard or first class seats</p>
+            </div>
+            <div class="about_us_content_item">
+              <p>Dolby Atmos 3D sound</p>
+            </div>
+            <div class="about_us_content_item">
+              <img src="../../media/empty-cinema-seats.png" alt="Empty Cinema Seats" class="about-us-image">>
+            </div>
+            
+          </div>
+          
       </section>
 
       <section id="seats-and-prices">
-        <h2>Seats and prices</h2>
 
+        <h2>Seats and prices</h2>
         <p>Discounted prices apply on weekday afternoons and all day on Monday</p>
 
-        <h4 class="seat_prices_header">Seat Prices</h4>
+        <div class="seats-and-prices-containter">
+          <div class="seats-and-prices-content-item">
+          <h4 class="seat_prices_header">Seat Prices</h4>
             <table class="seat_prices">
               <tr>
                 <th>Seat Type</th>
@@ -105,59 +116,72 @@
                 <td>25.00</td>
               </tr>
             </table>
-
-        <figure>
-          <img src='../../media/profern-standard-twin.png' alt='standard seat' />
-          <figcaption>Standard Seat</figcaption>
+          </div>
+          <div class="seats-and-prices-content-item">
+            <figure>
+            <img src='../../media/profern-standard-twin.png' alt='standard seat' class="seats-and-prices-image"/>
+            <figcaption>Standard Seat</figcaption>
         </figure>
+          </div>
+          <div class="seats-and-prices-content-item">
+            <figure>
+              <img src='../../media/profern-verona-twin.png' alt='standard seat' class="seats-and-prices-image"/>
+              <figcaption>First Class Seat seat</figcaption>
+            </figure>
+          </div>
+          <div class="seats-and-prices-content-item">
+            
+          </div>
 
-        <figure>
-          <img src='../../media/profern-verona-twin.png' alt='standard seat' />
-          <figcaption>First Class Seat seat</figcaption>
-        </figure>
-
-        
-
+        </div>
 
       </section>
+
+    <!-- Now Showing -->
 
       <section id="now-showing">
         <h2>Now Showing</h2>
 
       <div class="panels_container">
-        <div class="card3D" id="Avatar">
 
-          <div class="panel_front">
-            <h3 class="movie_title">Avatar - Way Of The Water (PG-13)</h3>
-            <img src='../../media/avatar-poster.png' alt='Avatar - Way Of The Water' class="movie_poster"/>
+        <div class="panel">
+          <h3 class="movie_title">Avatar - Way Of The Water (PG-13)</h3>
+          <div class="card3D" id="Avatar">
+            
+            <div class="panel_front">
+              <img src='../../media/avatar-poster.png' alt='Avatar - Way Of The Water' class="movie_poster"/>
 
-          </div>
-          <div class="panel_back">
-            <p class="synopsis">
-            Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.
-            </p>
-            <h4 class="session_times_header">Session Times</h4>
-            <table class="session_times">
-              <tr>
-                <th>Mon-Tue</th>
-                <th>Wed-Fri</th>
-                <th>Sat-Sun</th>
-              </tr>
-              <tr>
-                <td>9pm</td>
-                <td>9pm</td>
-                <td>6pm</td>
-              </tr>
-            </table>
-            <a href="/wp/a2/booking.php?movie=ACT" class="booking_button">Book Now</a>
+            </div>
+            <div class="panel_back">
+              <p class="synopsis">
+              Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.
+              </p>
+              <h4 class="session_times_header">Session Times</h4>
+              <table class="session_times">
+                <tr>
+                  <th>Mon-Tue</th>
+                  <th>Wed-Fri</th>
+                  <th>Sat-Sun</th>
+                </tr>
+                <tr>
+                  <td>9pm</td>
+                  <td>9pm</td>
+                  <td>6pm</td>
+                </tr>
+              </table>
+              <a href="/wp/a2/booking.php?movie=ACT" class="booking_button">Book Now</a>
 
           </div>
         </div>
-
+      </div>
+      
+      <div class="panel">
+        <h3 class="movie_title"> Weird Al Yankovic - The Al Yankovic Story (TV-14)</h3>
         <div class="card3D" id="Weird_Al">
-
+          
+          
           <div class="panel_front">
-            <h3 class="movie_title"> Weird Al Yankovic - The Al Yankovic Story (TV-14)</h3>
+            
             <img src='../../media/weird-al-yankovic-poster.png' alt='Weird Al Yankovic - The Al Yankovic Story'  class="movie_poster"/>
           </div>
 
@@ -181,12 +205,16 @@
             <a href="/wp/a2/booking.php?movie=RMC" class="booking_button">Book Now</a> 
           </div>
         </div>
+      </div>
 
         
-        <div class="card3D" id="Puss_in_Boots">
+            
+      <div class="panel">
+      <h3 class="movie_title"> Puss in Boots - The Last Wish (PG-13) </h3>
+      <div class="card3D" id="Puss_in_Boots">
           
           <div class="panel_front">
-          <h3 class="movie_title"> Puss in Boots - The Last Wish (PG-13) </h3>
+          
             <img src='../../media/puss-in-boots-poster.png' alt='Puss in Boots - The Last Wish' class="movie_poster"/>
           </div>
 
@@ -211,36 +239,43 @@
 
           </div>
         </div>
-
-
-        <div class="card3D" id="Margrete">
-         
-        <div class="panel_front">
-            <h3 class="movie_title"> Margrete - Queen Of The North (MA-15) </h3>
-            <img src='../../media/margrete-queen-of-the-north-poster.png' alt='Margrete - Queen Of The North' class="movie_poster"/>
-          </div>
-
-          <div class="panel_back">
-            <p class="synopsis">
-            1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.
-            </p>
-            <h4 class="session_times_header">Session Times</h4>
-            <table class="session_times">
-              <tr>
-                <th>Mon-Tue</th>
-                <th>Wed-Fri</th>
-                <th>Sat-Sun</th>
-              </tr>
-              <tr>
-                <td>6pm</td>
-                <td>-</td>
-                <td>9pm</td>
-              </tr>
-            </table>
-            <a href="/wp/a2/booking.php?movie=AHF" class="booking_button">Book Now</a> 
-          </div>
-        </div>
       </div>
+
+        
+        
+      <div class="panel">
+      <h3 class="movie_title"> Margrete - Queen Of The North (MA-15) </h3>
+      <div class="card3D" id="Margrete">
+         
+         <div class="panel_front">
+             
+             <img src='../../media/margrete-queen-of-the-north-poster.png' alt='Margrete - Queen Of The North' class="movie_poster"/>
+           </div>
+ 
+           <div class="panel_back">
+             <p class="synopsis">
+             1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.
+             </p>
+             <h4 class="session_times_header">Session Times</h4>
+             <table class="session_times">
+               <tr>
+                 <th>Mon-Tue</th>
+                 <th>Wed-Fri</th>
+                 <th>Sat-Sun</th>
+               </tr>
+               <tr>
+                 <td>6pm</td>
+                 <td>-</td>
+                 <td>9pm</td>
+               </tr>
+             </table>
+             <a href="/wp/a2/booking.php?movie=AHF" class="booking_button">Book Now</a> 
+           </div>
+         </div>
+       </div>
+      </div>
+
+        
 
         
 
