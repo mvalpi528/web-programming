@@ -220,12 +220,69 @@ div.card3D:hover > div:nth-child(2) {
   transform: rotateY(360deg);
 }
 
+/** Bookings page **/
+
+/* Banner section */
+
+#booking-banner-image {
+  margin-bottom: 100px;
+  min-height: 100%;
+}
+
+.banner-image {
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+  /* Controls which part of the image gets cropped as the view width increases */
+  object-position: 50% 0%;
+}
+
+.banner-image-container {
+  display: block;
+  position: relative;
+  padding: 0;
+}
+
+.banner-title {
+  color: white;
+  font-size: 3rem;
+  opacity: 100%;
+}
+
+.banner-content-container {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-title-synopsis {
+  color: white;
+  text-align: left;
+}
+
+/*
+.text-background {
+  background-color: black;
+  opacity: 80%;
+  border-radius: 10px;
+}
+*/
 /** Booking form **/
 
 .booking_form {
   margin-top: 100px;
   margin-bottom: 100px;
   text-align: center;
+}
+
+/* Trailer Section */
+
+#trailer {
+  margin: 0;
+  min-height: 100%;
 }
 
 /** Media Queries **/
