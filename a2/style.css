@@ -16,11 +16,13 @@ body {
   background-color: white;
   color: black;
   margin: 0;
+  padding: 0;
 }
 
 header {
   margin: 0;
-  height: 100%;
+  padding: 0;
+  height: 60px;
   width: 100%;
   background-color: rgb(255, 0, 0);
   color: white;
@@ -36,12 +38,16 @@ footer {
   width: 100%;
 }
 
-/**  **/
+/** Headings **/
 
 h2 {
   margin: 0 auto;
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
 }
 
 /** Images **/
@@ -56,11 +62,11 @@ h2 {
 
 nav {
   width: 100%;
-  height: 60px;
+  height: 100%;
   background-color: black;
-  margin: 0 auto;
   position: sticky;
   top: 0;
+  z-index: 3;
 }
 
 nav ul {
@@ -86,6 +92,7 @@ nav a {
 nav a:hover {
   background-color: #fff;
   color: black;
+  border: solid 1px black;
 }
 
 /** About Us **/
@@ -93,13 +100,23 @@ nav a:hover {
   margin-top: 5em;
 }
 
+.about-us-banner-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  /* Controls which part of the image gets cropped as the view width increases */
+  object-position: center;
+}
+
 .about_us_container {
   margin: 0;
+  display: grid;
+  gap: 1px;
 }
 
 .about_us_content_item {
-  margin: 0;
-  padding: 50px;
+  margin: 30px;
+  padding: 0;
 }
 
 .about-us-image {
@@ -227,6 +244,7 @@ div.card3D:hover > div:nth-child(2) {
 #booking-banner-image {
   margin-bottom: 100px;
   min-height: 100%;
+  z-index: -1;
 }
 
 .banner-image {
@@ -278,6 +296,56 @@ div.card3D:hover > div:nth-child(2) {
   text-align: center;
 }
 
+.form-container {
+  display: grid;
+  place-items: center;
+  gap: 30px;
+}
+
+fieldset {
+  display: grid;
+  border-width: 0;
+}
+
+fieldset legend {
+  text-align: center;
+  font-size: 2rem;
+}
+
+fieldset input[type="radio"] {
+  display: none;
+}
+
+fieldset input[type="radio"] + label {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+fieldset input[type="radio"]:checked + label {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+.submit-booking {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.submit-booking:checked {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
 /* Trailer Section */
 
 #trailer {
@@ -285,15 +353,14 @@ div.card3D:hover > div:nth-child(2) {
   min-height: 100%;
 }
 
+.trailer-video {
+  width: 90%;
+}
+
 /** Media Queries **/
 
 /** Desktop **/
 @media (min-width: 1025px) {
-  .about_us_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
   .seats-and-prices-containter {
     display: grid;
     grid-template-columns: 1fr 1fr;

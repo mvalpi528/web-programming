@@ -33,35 +33,29 @@
       </nav>
     
     <main>
-      <article id='Website Under Construction'>
-    <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-       <!-- <img src='../../media/website-under-construction.png' alt='Website Under Construction' /> -->
-      </article>
-
+      
+    
+            <img src="../../media/couple-watching-movie.png" alt="Couple watching a movie" class="about-us-banner-image">
+            
 
       <section id="about-us">
           <h2>About Us</h2>
           <div class="about_us_container">
             <div class="about_us_content_item">
               <h3>The Grand Re-Opening</h3>
-              <p>After extensive improvements Lunardo cinema is reopening</p>
-            </div>
-            <div class="about_us_content_item">
-            <img src="../../media/couple-watching-movie.png" alt="Couple watching a movie" class="about-us-image">
+              <p><em>After extensive improvements Lunardo cinema is reopening!</em></p>
+              <p>Experience the latest movies in comfort and style without leaving town.</p>
             </div>
             <div class="about_us_content_item">
               <h3>What's New</h3>
               <p>Enjoy your cinema experience in either our standard or first class seats</p>
+              <p>Experience high fidelity audio with Dolby Atmos 3D sound</p>
+              <p></p>
             </div>
-            <div class="about_us_content_item">
-              <p>Dolby Atmos 3D sound</p>
-            </div>
-            <div class="about_us_content_item">
-              <img src="../../media/empty-cinema-seats.png" alt="Empty Cinema Seats" class="about-us-image">>
-            </div>
-            
           </div>
           
+          <img src="../../media/empty-cinema-seats.png" alt="Empty Cinema Seats" class="about-us-banner-image">
+
       </section>
 
       <section id="seats-and-prices">
@@ -145,7 +139,7 @@
       <div class="panels_container">
 
         <div class="panel">
-          <h3 class="movie_title">Avatar - Way Of The Water (PG-13)</h3>
+          <h4 class="movie_title">Avatar - Way Of The Water (PG-13)</h4>
           <div class="card3D" id="Avatar">
             
             <div class="panel_front">
@@ -176,7 +170,7 @@
       </div>
       
       <div class="panel">
-        <h3 class="movie_title"> Weird Al Yankovic - The Al Yankovic Story (TV-14)</h3>
+        <h4 class="movie_title"> Weird Al Yankovic - The Al Yankovic Story (TV-14)</h4>
         <div class="card3D" id="Weird_Al">
           
           
@@ -210,7 +204,7 @@
         
             
       <div class="panel">
-      <h3 class="movie_title"> Puss in Boots - The Last Wish (PG-13) </h3>
+      <h4 class="movie_title"> Puss in Boots - The Last Wish (PG-13) </h4>
       <div class="card3D" id="Puss_in_Boots">
           
           <div class="panel_front">
@@ -244,7 +238,7 @@
         
         
       <div class="panel">
-      <h3 class="movie_title"> Margrete - Queen Of The North (MA-15) </h3>
+      <h4 class="movie_title"> Margrete - Queen Of The North (MA-15) </h4>
       <div class="card3D" id="Margrete">
          
          <div class="panel_front">

@@ -28,16 +28,10 @@
 
     <main>
 
-      <article id='Website Under Construction'>
-    <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-       <!-- <img src='../../media/website-under-construction.png' alt='Website Under Construction' /> -->
-      </article>
-
       <section id="booking-banner-image">
-        <div class="banner-image-container">>
+        <div class="banner-image-container">
           <div class="banner-content-container">
             <div class="text-background"><h1 class="banner-title">Avatar: The Way Of The Water</h1></div>
-            <div class="text-background"><p class="banner-title-synopsis">Avatar: The Way of Water begins to tell the story of the Sully family (Jake, Neytiri and their kids), the trouble that follows them, and the lengths they go to to keep each other safe</p></div>
           </div>
           
           <img src="../../media/avatar-banner-image.png" alt="Na'vi preparing to fire an arrow" class="banner-image">
@@ -46,10 +40,13 @@
 
       <section id="trailer">
 
-        <h2>Cast and Director</h2>
+        <h3>Director - James Cameron</h3>
+        
 
 
-        <h2>Synopsis</h2>
+        <h3>Synopsis</h3>
+        
+        <p>Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
 
         <video class="trailer-video" controls>
           <source src="../../media/avatar-trailer.mp4" type="video/mp4">
@@ -59,53 +56,66 @@
     <section id="form">
       <form action="booking.php" target="_blank" class="booking_form" method="post">
 
+        
+        <div class="form-container">
         <h2>Book now</h2>
+          <fieldset>
+            <legend>Contact Information</legend>
+            <label for="first-name">First Name:</label>
+            <br>
+            <input type="text" id="first-name">
+            <br>
 
-          <label for="first-name">First Name:</label>
-          <br>
-          <input type="text" id="first-name">
-          <br>
+            <label for="last-name">Last Name:</label>
+            <br>
+            <input type="text">
+            <br>
 
-          <label for="last-name">Last Name:</label>
-          <br>
-          <input type="text">
-          <br>
+            <label for="email">Email Address:</label>
+            <br>
+            <input type="email" id="email">
+            <br>
 
-          <label for="email">Email Address:</label>
-          <br>
-          <input type="email" id="email">
-          <br>
-
-          <label for="mobile-number">Mobile Number:</label>
-          <br>
-          <input type="number" id="mobile-number">
-          <br>
-
-          
-
-            <label for="monday">Monday - 9pm</label>
-            <input type="radio" id="monday" name="day" value="monday" data-pricing="discprice">
+            <label for="mobile-number">Mobile Number:</label>
             <br>
-            <label for="tuesday">Tuesday - 9pm</label>
-            <input type="radio" id="tuesday" name="day" value="tuesday" data-pricing="fullprice">
+            <input type="number" id="mobile-number">
             <br>
-            <label for="wednesday">Wednesday - 9pm</label>
-            <input type="radio" id="wednesday" name="day" value="wednesday" data-pricing="fullprice">
-            <br>
-            <label for="thursday">Thursday - 9pm</label>
-            <input type="radio" id="thursday" name="day" value="thursday" data-pricing="fullprice">
-            <br>
-            <label for="friday">Friday - 9pm</label>
-            <input type="radio" id="friday" name="day" value="friday" data-pricing="fullprice">
-            <br>
-            <label for="saturday">Saturday - 6pm</label>
-            <input type="radio" id="saturday" name="day" value="saturday" data-pricing="fullprice">
-            <br>
-            <label for="sunday">Sunday - 6pm</label>
-            <input type="radio" id="sunday" name="day" value="sunday" data-pricing="fullprice">
-            <br>
+          </fieldset>
+        
+          <fieldset>
+            <legend>Session Times</legend>
             
-            <label for="standard-adult-seats">Standard Adult Seats</label>
+            
+            <input type="radio" id="monday" name="day" value="monday" data-pricing="discprice">
+            <label for="monday">Monday - 9pm</label>
+            
+            <input type="radio" id="tuesday" name="day" value="tuesday" data-pricing="fullprice">
+            <label for="tuesday">Tuesday - 9pm</label>
+            
+            <input type="radio" id="wednesday" name="day" value="wednesday" data-pricing="fullprice">
+            <label for="wednesday">Wednesday - 9pm</label>
+            
+           
+            <input type="radio" id="thursday" name="day" value="thursday" data-pricing="fullprice">
+            <label for="thursday">Thursday - 9pm</label>
+            
+            
+            <input type="radio" id="friday" name="day" value="friday" data-pricing="fullprice">
+            <label for="friday">Friday - 9pm</label>
+            
+            
+            <input type="radio" id="saturday" name="day" value="saturday" data-pricing="fullprice">
+            <label for="saturday">Saturday - 6pm</label>
+            
+            
+            <input type="radio" id="sunday" name="day" value="sunday" data-pricing="fullprice">
+            <label for="sunday">Sunday - 6pm</label>
+            
+          </fieldset>
+
+          <fieldset>
+          <legend>Seats</legend>
+          <label for="standard-adult-seats">Standard Adult Seats</label>
             <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16">
               <option value="">please select</option>
               <option value="1">1</option>
@@ -200,11 +210,16 @@
               <option value="10">10</option>
             </select>
             <br>
+          </fieldset>
+            
+            
 
           <input type="hidden" name="movie" value="ACT">
 
-          <button type="submit">Submit</button>
+          <button type="submit" class="submit-booking">Submit</button>
 
+        </div>
+          
       </form>
 
 
