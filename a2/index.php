@@ -169,7 +169,7 @@
                   <td>6pm</td>
                 </tr>
               </table>
-              <a href="/wp/a2/booking.php?movie=ACT" class="booking_button">Book Now</a>
+              <a href="booking.php?movie=ACT" class="booking_button">Book Now</a>
 
           </div>
         </div>
@@ -202,7 +202,7 @@
                 <td>3pm</td>
               </tr>
             </table>
-            <a href="/wp/a2/booking.php?movie=RMC" class="booking_button">Book Now</a> 
+            <a href="booking.php?movie=RMC" class="booking_button">Book Now</a> 
           </div>
         </div>
       </div>
@@ -235,7 +235,7 @@
                 <td>12pm</td>
               </tr>
             </table>
-            <a href="/wp/a2/booking.php?movie=FAM" class="booking_button">Book Now</a> 
+            <a href="booking.php?movie=FAM" class="booking_button">Book Now</a> 
 
           </div>
         </div>
@@ -269,7 +269,7 @@
                  <td>9pm</td>
                </tr>
              </table>
-             <a href="/wp/a2/booking.php?movie=AHF" class="booking_button">Book Now</a> 
+             <a href="booking.php?movie=AHF" class="booking_button">Book Now</a> 
            </div>
          </div>
        </div>
