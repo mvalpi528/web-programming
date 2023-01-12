@@ -50,7 +50,7 @@
               <h3>What's New</h3>
               <br>
               <p class="container body-text">Enjoy your cinema experience in either our standard or first class seats</p>
-              <p class="container body-text">Experience high fidelity audio with Dolby Atmos 3D sound</p>
+              <p class="container body-text">Experience high fidelity audio with Dolby Atmos 3D sound and high resolution quailty with 3D Dolby Vision projection</p>
               <p></p>
             </div>
           </div>
@@ -142,7 +142,10 @@
       <div class="panels_container">
 
         <div class="panel">
-          <h4 class="movie_title">Avatar - Way Of The Water (PG-13)</h4>
+          <div class="panel-title">
+            <h4 class="movie_title">Avatar - Way Of The Water (PG-13)</h4>
+          </div>
+          
           <div class="card3D" id="Avatar">
             
             <div class="panel_front">
@@ -173,7 +176,9 @@
       </div>
       
       <div class="panel">
-        <h4 class="movie_title"> Weird Al Yankovic - The Al Yankovic Story (TV-14)</h4>
+        <div class="panel-title">
+          <h4 class="movie_title"> Weird Al Yankovic - The Al Yankovic Story (TV-14)</h4>
+        </div>
         <div class="card3D" id="Weird_Al">
           
           
@@ -207,7 +212,9 @@
         
             
       <div class="panel">
-      <h4 class="movie_title"> Puss in Boots - The Last Wish (PG-13) </h4>
+        <div class="panel-title">
+          <h4 class="movie_title"> Puss in Boots - The Last Wish (PG-13) </h4>
+        </div>
       <div class="card3D" id="Puss_in_Boots">
           
           <div class="panel_front">
@@ -241,7 +248,9 @@
         
         
       <div class="panel">
-      <h4 class="movie_title"> Margrete - Queen Of The North (MA-15) </h4>
+        <div class="panel-title">
+          <h4 class="movie_title"> Margrete - Queen Of The North (MA-15) </h4>
+        </div>
       <div class="card3D" id="Margrete">
          
          <div class="panel_front">

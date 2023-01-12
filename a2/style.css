@@ -42,7 +42,7 @@
     --fs-600: 2.5rem;
     --fs-500: 2.5rem;
     --fs-400: 1.5rem;
-    --fs-300: 1.5rem;
+    --fs-300: 1.1rem;
   }
 }
 
@@ -206,6 +206,10 @@ legend {
   font-family: "Montagu Slab", serif;
   text-align: center;
   font-size: var(--fs-600);
+}
+
+footer {
+  font-size: var(--fs-400);
 }
 
 /* ------------------------------- */
@@ -423,6 +427,10 @@ div.card3D:hover > div:nth-child(2) {
   transform: rotateY(360deg);
 }
 
+.synopsis {
+  font-size: var(--fs-300);
+}
+
 /** Bookings page **/
 
 /* Banner section */
@@ -568,5 +576,11 @@ fieldset input[type="radio"]:checked + label {
 }
 
 /** Tablet **/
-@media (max-width: 800px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .panel {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+  }
 }
