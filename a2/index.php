@@ -11,25 +11,24 @@
     <script src='../wireframe.js'></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Questrial&display=swap' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100&display=swap" rel="stylesheet">
   </head>
 
   <body>
 
-    <header>
-        <h1>Lunardo Cinemas</h1>
+    <header class="header-section">
+        <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">
+        <h1 class="website-heading">Lunardo Cinemas</h1>
     </header>
 
       <nav>
-        <div>
           <ul>
             <li><a href="#about-us">About Us</a></li>
             <li><a href="#seats-and-prices">Seats and prices</a></li>
             <li><a href="#now-showing">Now Showing</a></li>
             <li><a href="booking.php">Book</a></li>
           </ul>
-        </div>
       </nav>
     
     <main>
@@ -43,13 +42,15 @@
           <div class="about_us_container">
             <div class="about_us_content_item">
               <h3>The Grand Re-Opening</h3>
-              <p><em>After extensive improvements Lunardo cinema is reopening!</em></p>
-              <p>Experience the latest movies in comfort and style without leaving town.</p>
+              <br>
+              <p class="body-text"><em>After extensive improvements Lunardo cinema is reopening!</em></p>
+              <p class="body-text">Experience the latest movies in comfort and style without leaving town.</p>
             </div>
             <div class="about_us_content_item">
               <h3>What's New</h3>
-              <p>Enjoy your cinema experience in either our standard or first class seats</p>
-              <p>Experience high fidelity audio with Dolby Atmos 3D sound</p>
+              <br>
+              <p class="body-text">Enjoy your cinema experience in either our standard or first class seats</p>
+              <p class="body-text">Experience high fidelity audio with Dolby Atmos 3D sound</p>
               <p></p>
             </div>
           </div>
@@ -61,11 +62,13 @@
       <section id="seats-and-prices">
 
         <h2>Seats and prices</h2>
-        <p>Discounted prices apply on weekday afternoons and all day on Monday</p>
+        <br>
+        <p class="container">Discounted prices apply on weekday afternoons and all day on Monday</p>
 
         <div class="seats-and-prices-containter">
           <div class="seats-and-prices-content-item">
-          <h4 class="seat_prices_header">Seat Prices</h4>
+          <h3 class="seat_prices_header">Seat Prices</h4>
+          <br>
             <table class="seat_prices">
               <tr>
                 <th>Seat Type</th>

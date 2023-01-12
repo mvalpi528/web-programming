@@ -10,6 +10,42 @@
 
 /* --------------------*/
 
+/* Custom Properties */
+
+/* Creating responsive font functionality */
+/* Mobile first */
+:root {
+  --fs-xl: 1.5rem;
+  --fs-600: 1.35rem;
+  --fs-500: 1.15rem;
+  --fs-400: 0.9rem;
+  --fs-300: 0.7rem;
+}
+
+/* Font size responsiveness media queries */
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --fs-xl: 2rem;
+    --fs-600: 2rem;
+    --fs-500: 1.5rem;
+    --fs-400: 1.15rem;
+    --fs-300: 1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  :root {
+    --fs-xl: 3.5rem;
+    --fs-600: 2.5rem;
+    --fs-500: 2.5rem;
+    --fs-400: 1.5rem;
+    --fs-300: 1.5rem;
+  }
+}
+
 /* Box Sizing */
 /* Psuedo before and after elements have been included because they are not included in the all selector */
 *,
@@ -97,6 +133,11 @@ select {
   margin-inline: auto;
 }
 
+.body-text {
+  text-align: left;
+  padding-inline: 4em;
+}
+
 /* screen reader only utlity class */
 .sr-only {
   position: absolute;
@@ -128,6 +169,7 @@ section {
 
 body {
   font-family: "Questrial", sans-serif;
+  font-size: var(--fs-400);
   background-color: white;
   color: black;
 }
@@ -145,22 +187,46 @@ footer {
   width: 100%;
 }
 
-/** Headings **/
-
 h1 {
   font-family: "Montagu Slab", serif;
-  size: 100px;
 }
 
 h2 {
   font-family: "Montagu Slab", serif;
   text-align: center;
-  font-size: 3em;
+  font-size: var(--fs-600);
 }
 
 h3 {
   font-family: "Montagu Slab", serif;
-  font-size: 2em;
+  font-size: var(--fs-500);
+}
+
+legend {
+  font-family: "Montagu Slab", serif;
+  text-align: center;
+  font-size: var(--fs-600);
+}
+
+/* ------------------------------- */
+/* Index.php styling */
+
+/** Headings **/
+
+.header-section {
+  display: flex;
+  align-items: center;
+}
+
+.website-heading {
+  font-size: var(--fs-xl);
+  text-align: left;
+  padding-left: 20px;
+}
+
+.header-logo {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 /** Images **/
@@ -174,8 +240,12 @@ h3 {
 /* Nav Bar styling */
 
 nav {
+  padding: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: black;
   position: sticky;
   top: 0px;
@@ -183,15 +253,17 @@ nav {
 }
 
 nav ul {
-  list-style: none;
   margin: 0;
   padding: 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav li {
   display: inline-block;
-  font-size: 30px;
+  font-weight: lighter;
+  font-size: var(--fs-300);
   color: #fff;
 }
 
@@ -200,6 +272,7 @@ nav a {
   padding: 15px;
   text-decoration: none;
   color: #fff;
+  border-radius: 10px;
 }
 
 nav a:hover {
@@ -376,7 +449,7 @@ div.card3D:hover > div:nth-child(2) {
 
 .banner-title {
   color: white;
-  font-size: 3rem;
+  font-size: var(--fs-xl);
   opacity: 100%;
 }
 

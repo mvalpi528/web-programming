@@ -17,8 +17,9 @@
 
   <body>
 
-    <header>
-      <h1>Lunardo Cinemas</h1>
+    <header class="header-section">
+      <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">
+      <h1 class="website-heading">Lunardo Cinemas</h1>
     </header>
 
     <nav>
@@ -31,7 +32,7 @@
 
     <main>
 
-      <section id="booking-banner-image">
+      <div id="booking-banner-image">
         <div class="banner-image-container">
           <div class="banner-content-container">
             <div class="text-background"><h1 class="banner-title">Avatar: The Way Of The Water</h1></div>
@@ -39,17 +40,28 @@
           
           <img src="../../media/avatar-banner-image.png" alt="Na'vi preparing to fire an arrow" class="banner-image">
         </div>
-      </section>
+      </div>
 
       <section id="trailer">
 
-        <h3>Director - James Cameron</h3>
+        <h3>Cast and crew</h3>
+
+        <div class="container body-text">
+          <br>
+          <p>Director - James Cameron</p>
+          <p>Jake Sully - Sam Worthington</p>
+          <p>Neytiri - Zoe Saldana</p>
+          <p>Kiri Sully - Sigourney Waever</p>
+          <br>
+        </div>
+
         
 
 
         <h3>Synopsis</h3>
-        
-        <p>Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
+        <br>
+        <p class="container body-text">Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
+        <br>
 
         <video class="trailer-video container" controls>
           <source src="../../media/avatar-trailer.mp4" type="video/mp4">
@@ -64,6 +76,7 @@
         <h2>Book now</h2>
           <fieldset>
             <legend>Contact Information</legend>
+            <br>
             <label for="first-name">First Name:</label>
             <br>
             <input type="text" id="first-name">
