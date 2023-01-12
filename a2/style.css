@@ -1,8 +1,123 @@
 /* Insert your styles here */
-/* This stylesheet is for your tested CSS, styles here will be deactivated when toggling wireframe style */
+/* This stylesheet is for your tested CSS, styles here will be deactivated when toggling wireframe 
+
+/* --------------------*/
+/* CSS Reset */
+/* Apparently the resets are used to help deal with the fact that browsers apply default styles and that different browsers apply different defaults */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+/* Other options include a hard reset, normalise, sanitise etc... */
+
+/* --------------------*/
+
+/* Box Sizing */
+/* Psuedo before and after elements have been included because they are not included in the all selector */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+/* Set up the body */
+
+body {
+  /* Browser default is 1.4 */
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Makes forms easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove animations for people who've turned them off */
+/* This is an accessibility concern for people who react badly to motion */
+/* This can be done at the browser or the OS level */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------*/
+/* Utility Classes */
+
+/* Utility classes do one thing very well */
+/* --------------------*/
+
+/* Some people add extra properties in here to deal with content alignment - e.g. justify and align */
+
+/* General */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  /* padding only on the left and right */
+  padding-inline: 2em;
+  max-width: 80rem;
+  /* margin only on the left and right due to the 'inline' */
+  margin-inline: auto;
+}
+
+/* screen reader only utlity class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* --------------------*/
+/* Overall Styles */
+/* --------------------*/
+
 html {
   scroll-behavior: smooth;
-  margin: 0;
+  /* Stops the nav bar from overlapping the section titles */
+  scroll-padding-top: 80px;
 }
 
 section {
@@ -15,21 +130,13 @@ body {
   font-family: "Questrial", sans-serif;
   background-color: white;
   color: black;
-  margin: 0;
-  padding: 0;
 }
 
 header {
-  margin: 0;
-  padding: 0;
-  height: 60px;
+  height: 65px;
   width: 100%;
   background-color: rgb(255, 0, 0);
   color: white;
-}
-
-main {
-  margin: 0;
 }
 
 footer {
@@ -40,13 +147,19 @@ footer {
 
 /** Headings **/
 
+h1 {
+  font-family: "Montagu Slab", serif;
+  size: 100px;
+}
+
 h2 {
-  margin: 0 auto;
+  font-family: "Montagu Slab", serif;
   text-align: center;
   font-size: 3em;
 }
 
 h3 {
+  font-family: "Montagu Slab", serif;
   font-size: 2em;
 }
 
@@ -65,7 +178,7 @@ nav {
   height: 100%;
   background-color: black;
   position: sticky;
-  top: 0;
+  top: 0px;
   z-index: 3;
 }
 
@@ -355,6 +468,12 @@ fieldset input[type="radio"]:checked + label {
 
 .trailer-video {
   width: 90%;
+}
+
+/* Footers */
+
+.github-link {
+  color: aqua;
 }
 
 /** Media Queries **/

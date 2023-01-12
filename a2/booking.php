@@ -9,13 +9,16 @@
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
     <script src='../wireframe.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100&display=swap" rel="stylesheet">
   </head>
 
   <body>
 
     <header>
-      <div><h1>Lunardo Cinemas</h1></div>
+      <h1>Lunardo Cinemas</h1>
     </header>
 
     <nav>
@@ -48,7 +51,7 @@
         
         <p>Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
 
-        <video class="trailer-video" controls>
+        <video class="trailer-video container" controls>
           <source src="../../media/avatar-trailer.mp4" type="video/mp4">
         </video>
       </section>
@@ -229,11 +232,20 @@
 
     </main>
     <footer>
+
+      <address id="contact_information">
+        Phone: 9876 5432<br>
+        Email: contact_us@lunardocinemas.com<br>
+        Address: 132 main st, Lunardo, NSW
+      </address>
+
       <div>&copy;<script>
         document.write(new Date().getFullYear());
-      </script> Put your name(s), student number(s) and group name here. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+      </script>  Marc Valpiani, s3907456, Last Modified:  <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+      <a href="https://github.com/mvalpi528/wp" id="github_link" class="github-link">Find me on github</a>
       <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+      <div>
+      <button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
     </footer>
     <aside id="debug">
       <hr>

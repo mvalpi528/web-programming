@@ -9,16 +9,16 @@
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
     <script src='../wireframe.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
-
+    <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100&display=swap" rel="stylesheet">
   </head>
 
   <body>
 
     <header>
-      
         <h1>Lunardo Cinemas</h1>
-     
     </header>
 
       <nav>
@@ -292,12 +292,9 @@
 
       <div>&copy;<script>
         document.write(new Date().getFullYear());
-      </script> Marc Valpiani, s3907456, Last Modified: <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div><br>
+      </script> Marc Valpiani, s3907456, Last Modified: <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+      <a href="https://github.com/mvalpi528/wp" class="github-link">Find me on github</a>
       <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-      <br>
-      <div>
-        <a href="https://github.com/mvalpi528/wp" id="github_link">Find me on github</a>
-      </div>
       <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
     </footer>
 
