@@ -43,14 +43,14 @@
             <div class="about_us_content_item">
               <h3>The Grand Re-Opening</h3>
               <br>
-              <p class="body-text"><em>After extensive improvements Lunardo cinema is reopening!</em></p>
-              <p class="body-text">Experience the latest movies in comfort and style without leaving town.</p>
+              <p class="container body-text"><em>After extensive improvements Lunardo cinema is reopening!</em></p>
+              <p class="container body-text">Experience the latest movies in comfort and style without leaving town.</p>
             </div>
             <div class="about_us_content_item">
               <h3>What's New</h3>
               <br>
-              <p class="body-text">Enjoy your cinema experience in either our standard or first class seats</p>
-              <p class="body-text">Experience high fidelity audio with Dolby Atmos 3D sound</p>
+              <p class="container body-text">Enjoy your cinema experience in either our standard or first class seats</p>
+              <p class="container body-text">Experience high fidelity audio with Dolby Atmos 3D sound</p>
               <p></p>
             </div>
           </div>
