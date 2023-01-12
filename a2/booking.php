@@ -77,24 +77,19 @@
           <fieldset>
             <legend>Contact Information</legend>
             <br>
-            <label for="first-name">First Name:</label>
+            <label for="name">Name:</label>
             <br>
-            <input type="text" id="first-name">
-            <br>
-
-            <label for="last-name">Last Name:</label>
-            <br>
-            <input type="text">
+            <input type="text" id="name" name="user[name]" required>
             <br>
 
             <label for="email">Email Address:</label>
             <br>
-            <input type="email" id="email">
+            <input type="email" id="email" name="user[email]" required>
             <br>
 
             <label for="mobile-number">Mobile Number:</label>
             <br>
-            <input type="number" id="mobile-number">
+            <input type="number" id="mobile-number" name="user[mobile]" required>
             <br>
           </fieldset>
         

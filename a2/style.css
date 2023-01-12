@@ -277,12 +277,22 @@ nav a {
   text-decoration: none;
   color: #fff;
   border-radius: 10px;
+  transform: scale(1);
 }
+
+/* LoVe HAte */
+
+/* Link and visited not included - there is no need to indicate which links in the nav bar have been visitied in this situation and the link state has already been handled by the 'nav a' selector above */
 
 nav a:hover {
   background-color: #fff;
   color: black;
   border: solid 1px black;
+}
+
+nav a:active {
+  transform: scale(1.1);
+  text-decoration: underline;
 }
 
 /** About Us **/
@@ -322,6 +332,8 @@ nav a:hover {
 
 .seats-and-prices-containter {
   margin: auto;
+
+  max-width: 70%;
 }
 
 .seats-and-prices-content-item {
@@ -349,9 +361,10 @@ nav a:hover {
 
 /** How do I make these all align **/
 .movie_poster {
-  max-height: 80%;
-  max-width: 100%;
+  height: 400px;
+  width: 280px;
   bottom: 0;
+  margin: auto;
 }
 
 .booking_button {
@@ -376,9 +389,19 @@ nav a:hover {
 .panels_container {
   display: grid;
   grid-template-columns: 1fr;
+  margin: auto;
   margin-top: 100px;
   justify-items: center;
-  align-items: space-around;
+  align-items: space-between;
+  max-width: 70%;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin: auto;
+  text-align: center;
 }
 
 div.card3D {
