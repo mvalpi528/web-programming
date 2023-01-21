@@ -1,0 +1,609 @@
+/* Insert your styles here */
+/* This stylesheet is for your tested CSS, styles here will be deactivated when toggling wireframe 
+
+/* --------------------*/
+/* CSS Reset */
+/* Apparently the resets are used to help deal with the fact that browsers apply default styles and that different browsers apply different defaults */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+/* Other options include a hard reset, normalise, sanitise etc... */
+
+/* --------------------*/
+
+/* Custom Properties */
+
+/* Creating responsive font functionality */
+/* Mobile first */
+:root {
+  --fs-xl: 1.5rem;
+  --fs-600: 1.35rem;
+  --fs-500: 1.15rem;
+  --fs-400: 0.9rem;
+  --fs-300: 0.7rem;
+}
+
+/* Font size responsiveness media queries */
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --fs-xl: 2rem;
+    --fs-600: 2rem;
+    --fs-500: 1.5rem;
+    --fs-400: 1.15rem;
+    --fs-300: 1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  :root {
+    --fs-xl: 3.5rem;
+    --fs-600: 2.5rem;
+    --fs-500: 2.5rem;
+    --fs-400: 1.5rem;
+    --fs-300: 1.1rem;
+  }
+}
+
+/* Box Sizing */
+/* Psuedo before and after elements have been included because they are not included in the all selector */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+/* Set up the body */
+
+body {
+  /* Browser default is 1.4 */
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Makes forms easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove animations for people who've turned them off */
+/* This is an accessibility concern for people who react badly to motion */
+/* This can be done at the browser or the OS level */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------*/
+/* Utility Classes */
+
+/* Utility classes do one thing very well */
+/* --------------------*/
+
+/* Some people add extra properties in here to deal with content alignment - e.g. justify and align */
+
+/* General */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  /* padding only on the left and right */
+  padding-inline: 2em;
+  max-width: 80rem;
+  /* margin only on the left and right due to the 'inline' */
+  margin-inline: auto;
+}
+
+.body-text {
+  text-align: left;
+  padding-inline: 4em;
+}
+
+/* screen reader only utlity class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* --------------------*/
+/* Overall Styles */
+/* --------------------*/
+
+html {
+  scroll-behavior: smooth;
+  /* Stops the nav bar from overlapping the section titles */
+  scroll-padding-top: 80px;
+}
+
+section {
+  min-height: 100vh;
+  min-width: 100vw;
+  text-align: center;
+}
+
+body {
+  font-family: "Questrial", sans-serif;
+  font-size: var(--fs-400);
+  background-color: white;
+  color: black;
+}
+
+header {
+  height: 65px;
+  width: 100%;
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Montagu Slab", serif;
+}
+
+h2 {
+  font-family: "Montagu Slab", serif;
+  text-align: center;
+  font-size: var(--fs-600);
+}
+
+h3 {
+  font-family: "Montagu Slab", serif;
+  font-size: var(--fs-500);
+}
+
+legend {
+  font-family: "Montagu Slab", serif;
+  text-align: center;
+  font-size: var(--fs-600);
+}
+
+footer {
+  font-size: var(--fs-400);
+}
+
+/* ------------------------------- */
+/* Index.php styling */
+
+/** Headings **/
+
+.header-section {
+  display: flex;
+  align-items: center;
+}
+
+.website-heading {
+  font-size: var(--fs-xl);
+  text-align: left;
+  padding-left: 20px;
+}
+
+.header-logo {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/** Images **/
+
+.large-image {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: cover;
+}
+
+/* Nav Bar styling */
+
+nav {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  position: sticky;
+  top: 0px;
+  z-index: 3;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav li {
+  display: inline-block;
+  font-weight: lighter;
+  font-size: var(--fs-300);
+  color: #fff;
+}
+
+nav a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 10px;
+  transform: scale(1);
+}
+
+/* LoVe HAte */
+
+/* Link and visited not included - there is no need to indicate which links in the nav bar have been visitied in this situation and the link state has already been handled by the 'nav a' selector above */
+
+nav a:hover {
+  background-color: #fff;
+  color: black;
+  border: solid 1px black;
+}
+
+nav a:active {
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+/** About Us **/
+#about-us {
+  margin-top: 5em;
+}
+
+.about-us-banner-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  /* Controls which part of the image gets cropped as the view width increases */
+  object-position: center;
+}
+
+.about_us_container {
+  margin: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.about_us_content_item {
+  margin: 30px;
+  padding: 0;
+}
+
+.about-us-image {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+/** Seats and prices **/
+
+.seat_prices {
+  margin: auto;
+}
+
+.seats-and-prices-containter {
+  margin: auto;
+
+  max-width: 70%;
+}
+
+.seats-and-prices-content-item {
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.seats-and-prices-image {
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/** Now Showing **/
+
+.session_times_header {
+  font-size: 1.5em;
+}
+
+.session_times {
+  margin: auto;
+  padding: 1em;
+}
+
+/** How do I make these all align **/
+.movie_poster {
+  height: 400px;
+  width: 280px;
+  bottom: 0;
+  margin: auto;
+}
+
+.booking_button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.booking_button:hover {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+/** panel styling **/
+
+.panels_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: auto;
+  margin-top: 100px;
+  justify-items: center;
+  align-items: space-between;
+  max-width: 70%;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin: auto;
+  text-align: center;
+}
+
+div.card3D {
+  box-sizing: border-box;
+
+  height: 500px;
+  width: 350px;
+  padding: 5px;
+  overflow: auto;
+
+  position: relative;
+}
+
+div.card3D > div {
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  box-sizing: border-box;
+  padding: 5px 10px;
+
+  /** allows you to adjust the positioning within the containing block **/
+  position: absolute;
+
+  transition: 1s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+div.card3D > div:nth-child(1) {
+  /** border: 4px red groove; **/
+
+  transform: rotateY(0deg);
+}
+
+div.card3D > div:nth-child(2) {
+  /** border: 4px blue groove; **/
+
+  transform: rotateY(180deg);
+  overflow: auto;
+}
+
+div.card3D:hover > div:nth-child(1) {
+  transform: rotateY(180deg);
+}
+
+div.card3D:hover > div:nth-child(2) {
+  transform: rotateY(360deg);
+}
+
+.synopsis {
+  font-size: var(--fs-300);
+}
+
+/** Bookings page **/
+
+/* Banner section */
+
+#booking-banner-image {
+  margin-bottom: 100px;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.banner-image {
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+  /* Controls which part of the image gets cropped as the view width increases */
+  object-position: 50% 0%;
+}
+
+.banner-image-container {
+  display: block;
+  position: relative;
+  padding: 0;
+}
+
+.banner-title {
+  color: white;
+  font-size: var(--fs-xl);
+  opacity: 100%;
+}
+
+.banner-content-container {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-title-synopsis {
+  color: white;
+  text-align: left;
+}
+
+/*
+  .text-background {
+    background-color: black;
+    opacity: 80%;
+    border-radius: 10px;
+  }
+  */
+/** Booking form **/
+
+.booking_form {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.form-container {
+  display: grid;
+  place-items: center;
+  gap: 30px;
+}
+
+fieldset {
+  display: grid;
+  border-width: 0;
+}
+
+fieldset legend {
+  text-align: center;
+  font-size: 2rem;
+}
+
+fieldset input[type="radio"] {
+  display: none;
+}
+
+fieldset input[type="radio"] + label {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+fieldset input[type="radio"]:checked + label {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+.submit-booking {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.submit-booking:checked {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+/* Trailer Section */
+
+#trailer {
+  margin: 0;
+  min-height: 100%;
+}
+
+.trailer-video {
+  width: 90%;
+}
+
+/* Footers */
+
+.github-link {
+  color: aqua;
+}
+
+/** Media Queries **/
+
+/** Desktop **/
+@media (min-width: 1025px) {
+  .seats-and-prices-containter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .panels_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 100px;
+    justify-items: center;
+    align-items: space-around;
+  }
+}
+
+/** Tablet **/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .panel {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+}
