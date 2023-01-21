@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
   </head>
 
   <body>
@@ -93,9 +94,8 @@
             <br>
           </fieldset>
         
-          <fieldset>
+          <fieldset onchange="getSessionTime()">
             <legend>Session Times</legend>
-            
             
             <input type="radio" id="monday" name="day" value="monday" data-pricing="discprice">
             <label for="monday">Monday - 9pm</label>
@@ -127,7 +127,7 @@
           <fieldset>
           <legend>Seats</legend>
           <label for="standard-adult-seats">Standard Adult Seats</label>
-            <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16">
+            <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16" onchange="getNumStandardAdultSeats()">
               <option value="">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -143,7 +143,7 @@
             <br>
 
             <label for="standard-concession-seats">Standard Concession Seats</label>
-            <select name="standard-concession-seats" id="standard-concession-seats" data-fullprice="19" data-discprice="14.5">
+            <select name="standard-concession-seats" id="standard-concession-seats" data-fullprice="19" data-discprice="14.5" onchange="getNumStandardConcessionSeats()">
               <option value="">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -159,7 +159,7 @@
             <br>
 
             <label for="standard-child-seats">Standard Child Seats</label>
-            <select name="standard-child-seats" id="standard-child-seats" data-fullprice="17.5" data-discprice="13">
+            <select name="standard-child-seats" id="standard-child-seats" data-fullprice="17.5" data-discprice="13" onchange="getNumStandardChildSeats()">
               <option value="">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -175,7 +175,7 @@
             <br>
 
             <label for="first-class-adult-seats">First Class Adult Seats</label>
-            <select name="first-class-adult-seats" id="first-class-adult-seats" data-fullprice="31" data-discprice="25">
+            <select name="first-class-adult-seats" id="first-class-adult-seats" data-fullprice="31" data-discprice="25" onchange="getNumFirstClassAdultSeats()">
               <option value="">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -191,7 +191,7 @@
             <br>
 
             <label for="first-class-concession-seats">First Class Concession Seats</label>
-            <select name="first-class-concession-seats" id="first-class-concession-seats" data-fullprice="28" data-discprice="23.5">
+            <select name="first-class-concession-seats" id="first-class-concession-seats" data-fullprice="28" data-discprice="23.5" onchange="getNumFirstClassConcessionSeats()">
               <option value="">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -207,7 +207,7 @@
             <br>
 
             <label for="first-class-child-seats">First Class Child Seats</label>
-            <select name="first-class-child-seats" id="first-class-child-seats" data-fullprice="25" data-discprice="22">
+            <select name="first-class-child-seats" id="first-class-child-seats" data-fullprice="25" data-discprice="22" onchange="getNumFirstClassChildSeats()">
               <option value="">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
