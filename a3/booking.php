@@ -128,7 +128,7 @@
           <legend>Seats</legend>
           <label for="standard-adult-seats">Standard Adult Seats</label>
             <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16" onchange="getNumStandardAdultSeats()">
-              <option value="">please select</option>
+              <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -144,7 +144,7 @@
 
             <label for="standard-concession-seats">Standard Concession Seats</label>
             <select name="standard-concession-seats" id="standard-concession-seats" data-fullprice="19" data-discprice="14.5" onchange="getNumStandardConcessionSeats()">
-              <option value="">please select</option>
+              <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -160,7 +160,7 @@
 
             <label for="standard-child-seats">Standard Child Seats</label>
             <select name="standard-child-seats" id="standard-child-seats" data-fullprice="17.5" data-discprice="13" onchange="getNumStandardChildSeats()">
-              <option value="">please select</option>
+              <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -176,7 +176,7 @@
 
             <label for="first-class-adult-seats">First Class Adult Seats</label>
             <select name="first-class-adult-seats" id="first-class-adult-seats" data-fullprice="31" data-discprice="25" onchange="getNumFirstClassAdultSeats()">
-              <option value="">please select</option>
+              <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -192,7 +192,7 @@
 
             <label for="first-class-concession-seats">First Class Concession Seats</label>
             <select name="first-class-concession-seats" id="first-class-concession-seats" data-fullprice="28" data-discprice="23.5" onchange="getNumFirstClassConcessionSeats()">
-              <option value="">please select</option>
+              <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -208,7 +208,7 @@
 
             <label for="first-class-child-seats">First Class Child Seats</label>
             <select name="first-class-child-seats" id="first-class-child-seats" data-fullprice="25" data-discprice="22" onchange="getNumFirstClassChildSeats()">
-              <option value="">please select</option>
+              <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
