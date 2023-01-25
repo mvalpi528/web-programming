@@ -14,6 +14,25 @@ const sections = document
 console.log(sections);
 console.log(sections[0].offsetTop + "");
 
+// 5.1 REGEX Validation
+
+// REGEX for booking name
+// function validateBookingName() {
+//   const bookingName = document.getElementById("name").value;
+//   const regx = / /;
+
+//   console.log("This is the booking name: " + bookingName);
+// }
+
+// // REGEX for phone number
+// function validateBookingPhoneNumber() {
+//   const bookingNumber = document.getElementById("mobile-number").value;
+//   console.log("This is the booking mobile number: " + bookingNumber);
+// }
+
+// document.body.addEventListener("dblclick", validateBookingName);
+// document.body.addEventListener("dblclick", validateBookingPhoneNumber);
+
 // 5.2 Price Calculation Client Side
 
 let numStandardAdultSeats = 0;
@@ -226,8 +245,8 @@ function getFirstClassChildSeatPrice() {
 // document.body.addEventListener("dblclick", getFirstClassAdultSeatPrice);
 // document.body.addEventListener("dblclick", getFirstClassConcessionSeatPrice);
 // document.body.addEventListener("dblclick", getFirstClassChildSeatPrice);
-document.body.addEventListener("dblclick", getStandardAdultSeatPrice);
-document.body.addEventListener("dblclick", calculatePrice);
+// document.body.addEventListener("dblclick", getStandardAdultSeatPrice);
+// document.body.addEventListener("dblclick", calculatePrice);
 
 function calculatePrice() {
   let standardAdultSeatPrice = getStandardAdultSeatPrice();
