@@ -83,7 +83,7 @@
             <br>
             <label for="name">Name:</label>
             <br>
-            <input type="text" id="name" name="user[name]" required title="Name must" pattern="^[-A-Za-z '.]{1,64}$">
+            <input type="text" id="name" name="user[name]" required title="Name must" pattern="[-A-Za-z '.]{1,64}">
             <br>
 
             <label for="email">Email Address:</label>
@@ -93,7 +93,7 @@
 
             <label for="mobile-number">Mobile Number:</label>
             <br>
-            <input type="number" id="mobile-number" name="user[mobile]" required pattern="^(\(04\)|04|\+614)( ?\d){8}$">
+            <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}">
             <br>
           </fieldset>
 

@@ -1,6 +1,6 @@
 /* Insert your javascript here */
 window.onscroll = function () {
-  //console.log("Win Y: " + window.scrollY);
+  console.log("Win Y: " + window.scrollY);
 };
 
 const navLinks = document
