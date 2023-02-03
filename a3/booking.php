@@ -1,3 +1,9 @@
+<?php
+include('tools.php');
+include('post-validation.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -19,6 +25,8 @@
 
 <body>
 
+
+
   <header class="header-section">
     <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">
     <h1 class="website-heading">Lunardo Cinemas</h1>
@@ -38,11 +46,13 @@
       <div class="banner-image-container">
         <div class="banner-content-container">
           <div class="text-background">
-            <h1 class="banner-title">Avatar: The Way Of The Water</h1>
+            <h1 class="banner-title"><?php echo $moviesObject[$_GET['movie']]["title"]; ?></h1>
           </div>
         </div>
 
-        <img src="../../media/avatar-banner-image.png" alt="Na'vi preparing to fire an arrow" class="banner-image">
+
+        <?php loadBannerImage(); ?>
+
       </div>
     </div>
 
@@ -51,12 +61,7 @@
       <h3>Cast and crew</h3>
 
       <div class="container body-text">
-        <br>
-        <p>Director - James Cameron</p>
-        <p>Jake Sully - Sam Worthington</p>
-        <p>Neytiri - Zoe Saldana</p>
-        <p>Kiri Sully - Sigourney Waever</p>
-        <br>
+        <?php loadCastAndCrew(); ?>
       </div>
 
 
@@ -64,12 +69,12 @@
 
       <h3>Synopsis</h3>
       <br>
-      <p class="container body-text">Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
+      <p class="container body-text"><?php echo $moviesObject[$_GET['movie']]["synopsis"]; ?></p>
       <br>
 
-      <video class="trailer-video container" controls>
-        <source src="../../media/avatar-trailer.mp4" type="video/mp4">
-      </video>
+      <?php loadTrailer(); ?>
+
+
     </section>
 
     <section id="form">
@@ -83,7 +88,7 @@
             <br>
             <label for="name">Name:</label>
             <br>
-            <input type="text" id="name" name="user[name]" required title="Name must" pattern="[-A-Za-z '.]{1,64}">
+            <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}">
             <br>
 
             <label for="email">Email Address:</label>
