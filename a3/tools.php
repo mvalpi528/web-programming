@@ -48,9 +48,9 @@ $moviesObject = [
     "synopsis" =>
     "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
     "session-times" => [
-      "Mon-Tue" => ["9pm"],
-      "Wed-Fri" => ["9pm"],
-      "Sat-Sun" => ["6pm"],
+      "Mon-Tue: 9pm",
+      "Wed-Fri: 9pm",
+      "Sat-Sun: 6pm",
     ],
     "cast-and-crew" => [
       "Director - James Cameron",
@@ -65,9 +65,9 @@ $moviesObject = [
     "synopsis" =>
     "Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.",
     "session-times" => [
-      "Mon-Tue" => ["-"],
-      "Wed-Fri" => ["12pm"],
-      "Sat-Sun" => ["3pm"]
+      "Mon-Tue: -",
+      "Wed-Fri: 12pm",
+      "Sat-Sun: 3pm"
     ],
     "cast-and-crew" => [
       "Director - Eric Appel",
@@ -82,9 +82,9 @@ $moviesObject = [
     "synopsis" =>
     "Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
     "session-times" => [
-      "Mon-Tue" => ["12pm"],
-      "Wed-Fri" => ["6pm"],
-      "Sat-Sun" => ["12pm"],
+      "Mon-Tue: 12pm",
+      "Wed-Fri: 6pm",
+      "Sat-Sun: 12pm",
     ],
     "cast-and-crew" => [
       "Director - Joel Crawford, Januel Mercado",
@@ -100,9 +100,9 @@ $moviesObject = [
     "synopsis" =>
     "1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.",
     "session-times" => [
-      "Mon-Tue" => ["6pm"],
-      "Wed-Fri" => ["-"],
-      "Sat-Sun" => ["9pm"],
+      "Mon-Tue: 6pm",
+      "Wed-Fri: -",
+      "Sat-Sun: 9pm",
     ],
     "cast-and-crew" => [
       "Director - Charlotte Sieling",
