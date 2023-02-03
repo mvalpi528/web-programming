@@ -142,7 +142,7 @@ function createMoviePanel($movieID)
 
             <div class="panel_front">
 
-              <img src='../../media/$movieID-poster.png' alt='{$moviesObject[$movieID]['alt']}' class="movie_poster" />
+              <img src='../../media/{$movieID}-poster.png' alt='{$moviesObject[$movieID]['alt']}' class="movie_poster" />
             </div>
 
             <div class="panel_back">
