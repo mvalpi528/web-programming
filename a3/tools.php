@@ -1,7 +1,8 @@
 
 <?php
-// this gives access to the Session data
 // session_start();
+// this gives access to the Session data
+
 
 // put any custom php functions here
 
@@ -39,6 +40,28 @@ function php2js($arr, $arrName)
   </script>
 CDATA;
 }
+
+$pricesObject = [
+  "standard-adult" => [
+    "full" => 21.5,
+    "disc" => 16,
+  ], "standard-concession" => [
+    "full" => 19,
+    "disc" => 14.5,
+  ], "standard-child" => [
+    "full" => 17.5,
+    "disc" => 13,
+  ], "first-class-adult" => [
+    "full" => 31,
+    "disc" => 25,
+  ], "first-class-concession" => [
+    "full" => 28,
+    "disc" => 23.5,
+  ], "first-class-child" => [
+    "full" => 25,
+    "disc" => 22,
+  ]
+];
 
 $moviesObject = [
   'ACT' => [
@@ -169,10 +192,11 @@ function createMoviePanel($movieID)
 CDATA;
 }
 
-function loadBannerImage()
+function loadBannerImage($movieID)
 {
+  global $moviesObject;
   echo <<<"CDATA"
-  <img src="../../media/{$_GET['movie']}-banner-image.png" alt={$_GET['movie']['alt']} class="banner-image">
+  <img src="../../media/{$_GET['movie']}-banner-image.png" alt="{$moviesObject[$movieID]['movie']['alt']}" class="banner-image">
   CDATA;
 }
 
@@ -195,38 +219,59 @@ function loadCastAndCrew()
   echo "</ul></div>";
 }
 
+function loadSessionTimes($movieID)
+{
+  global $moviesObject;
+
+  echo <<<"CDATA"
+  <fieldset onchange="getSessionTime()">
+            <legend>Session Times</legend>
+
+            <input type="radio" id="monday" name="day" value="monday" data-pricing="discprice">
+            <label for="monday">Monday - {$moviesObject[$movieID]['session-times']['Mon-Tue']}</label>
+
+            <input type="radio" id="tuesday" name="day" value="tuesday" data-pricing="fullprice">
+            <label for="tuesday">Tuesday - {$moviesObject[$movieID]['session-times']['Mon-Tue']}</label>
+
+            <input type="radio" id="wednesday" name="day" value="wednesday" data-pricing="fullprice">
+            <label for="wednesday">Wednesday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
 
 
-// function checkValidMovieCode()
-// {
-//   if (!isset($moviesObject[$_GET['movie']])) {
-//     echo "This movie does not exist";
-//     header("Location: index.php"); // redirect if movie code invalid
-//     exit();
-//   }
-// }
+            <input type="radio" id="thursday" name="day" value="thursday" data-pricing="fullprice">
+            <label for="thursday">Thursday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
 
 
-// function moviePanel($movieID)
-// {
-//   global $moviesObject;
-//   echo <<<"CDATA"
-// <div class='movie-panel' id='panel_$movieID'>
-//   <img class='poster' src='/posters/poster_$movieID.png' .../>
-//   <!-- the curly braces indicate that the everything inside there is a variable -->
-//   <h2>{$moviesObject[$movieID]['title']}</h2>
-//   <img src='/classifications/{$moviesObject[$movieID]['classification']}.png'.../>
-//   <p class='summary'>{$moviesObject[$movieID]['summary']}</p>
-//   <p class='synopsis'>{$moviesObject[$movieID]['synopsis']}</p>
-//   <div>
-//     <span class='rating'> ... </span>
-//     <button class='film-info' ... > ... </button>
-//   </div>
-// </div>
-// CDATA;
-// }
+            <input type="radio" id="friday" name="day" value="friday" data-pricing="fullprice">
+            <label for="friday">Friday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
 
 
-// // 
+            <input type="radio" id="saturday" name="day" value="saturday" data-pricing="fullprice">
+            <label for="saturday">Saturday - {$moviesObject[$movieID]['session-times']['Sat-Sun']}</label>
+
+
+            <input type="radio" id="sunday" name="day" value="sunday" data-pricing="fullprice">
+            <label for="sunday">Sunday - {$moviesObject[$movieID]['session-times']['Sat-Sun']}</label>
+
+          </fieldset>
+
+  CDATA;
+}
+
+
+
+
+
+
+function checkValidMovieCode()
+{
+  if (!isset($moviesObject[$_GET['movie']])) {
+    echo "This movie does not exist";
+    //header("Location: index.php?errorCode=101"); // redirect if movie code invalid
+    //exit();
+  }
+}
+
+
+
 ?>
 

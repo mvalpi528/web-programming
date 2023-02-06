@@ -25,7 +25,7 @@ include('post-validation.php');
 
 <body>
 
-
+  <?php checkValidMovieCode(); ?>
 
   <header class="header-section">
     <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">
@@ -51,7 +51,7 @@ include('post-validation.php');
         </div>
 
 
-        <?php loadBannerImage(); ?>
+        <?php loadBannerImage($_GET['movie']); ?>
 
       </div>
     </div>
@@ -102,35 +102,7 @@ include('post-validation.php');
             <br>
           </fieldset>
 
-          <fieldset onchange="getSessionTime()">
-            <legend>Session Times</legend>
-
-            <input type="radio" id="monday" name="day" value="monday" data-pricing="discprice">
-            <label for="monday">Monday - 9pm</label>
-
-            <input type="radio" id="tuesday" name="day" value="tuesday" data-pricing="fullprice">
-            <label for="tuesday">Tuesday - 9pm</label>
-
-            <input type="radio" id="wednesday" name="day" value="wednesday" data-pricing="fullprice">
-            <label for="wednesday">Wednesday - 9pm</label>
-
-
-            <input type="radio" id="thursday" name="day" value="thursday" data-pricing="fullprice">
-            <label for="thursday">Thursday - 9pm</label>
-
-
-            <input type="radio" id="friday" name="day" value="friday" data-pricing="fullprice">
-            <label for="friday">Friday - 9pm</label>
-
-
-            <input type="radio" id="saturday" name="day" value="saturday" data-pricing="fullprice">
-            <label for="saturday">Saturday - 6pm</label>
-
-
-            <input type="radio" id="sunday" name="day" value="sunday" data-pricing="fullprice">
-            <label for="sunday">Sunday - 6pm</label>
-
-          </fieldset>
+          <?php loadSessionTimes($_GET['movie']) ?>
 
           <fieldset>
             <legend>Seats</legend>

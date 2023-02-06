@@ -36,7 +36,8 @@ include('tools.php');
       <li><a href="#about-us">About Us</a></li>
       <li><a href="#seats-and-prices">Seats and prices</a></li>
       <li><a href="#now-showing">Now Showing</a></li>
-      <li><a href="booking.php">Book</a></li>
+      <!-- Bookings page defaults to Avatar -->
+      <li><a href="booking.php?movie=ACT">Book</a></li>
     </ul>
   </nav>
 
