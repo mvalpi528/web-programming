@@ -196,7 +196,7 @@ function loadBannerImage($movieID)
 {
   global $moviesObject;
   echo <<<"CDATA"
-  <img src="../../media/{$movieID['movie']}-banner-image.png" alt="{$moviesObject[$movieID]['movie']['alt']}" class="banner-image">
+  <img src="../../media/{$_GET['movie']}-banner-image.png" alt="{$moviesObject[$movieID]['movie']['alt']}" class="banner-image">
   CDATA;
 }
 
