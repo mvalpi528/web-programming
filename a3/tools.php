@@ -264,6 +264,7 @@ function loadSessionTimes($movieID)
 
 function checkValidMovieCode()
 {
+  global $moviesObject;
   if (!isset($moviesObject[$_GET['movie']])) {
     echo "This movie does not exist";
     //header("Location: index.php?errorCode=101"); // redirect if movie code invalid
