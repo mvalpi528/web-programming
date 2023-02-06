@@ -257,22 +257,15 @@ function loadSessionTimes($movieID)
   CDATA;
 }
 
-
-
-
-
-
 function checkValidMovieCode()
 {
   global $moviesObject;
   if (!isset($moviesObject[$_GET['movie']])) {
     echo "This movie does not exist";
-    header("Location: index.php?errorCode=101"); // redirect if movie code invalid
+    header("Location: index.php"); // redirect if movie code invalid
     exit();
   }
 }
-
-
 
 ?>
 

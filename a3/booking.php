@@ -78,7 +78,7 @@ include('post-validation.php');
     </section>
 
     <section id="form">
-      <form action="booking.php" target="_blank" class="booking_form" method="post">
+      <form action="<?php "booking.php?movie={$_GET['movie']}" ?>" target="_blank" class="booking_form" method="post">
 
 
         <div class="form-container">
