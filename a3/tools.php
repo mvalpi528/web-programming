@@ -79,7 +79,7 @@ $moviesObject = [
       "Director - James Cameron",
       "Jake Sully - Sam Worthington",
       "Neytiri - Zoe Saldana",
-      "Kiri SullySigourney Waever"
+      "Kiri Sully - Sigourney Waever"
     ]
   ], 'RMC' => [
     "title" => 'Weird Al Yankovic - The Al Yankovic Story (TV-14)',
@@ -267,8 +267,8 @@ function checkValidMovieCode()
   global $moviesObject;
   if (!isset($moviesObject[$_GET['movie']])) {
     echo "This movie does not exist";
-    //header("Location: index.php?errorCode=101"); // redirect if movie code invalid
-    //exit();
+    header("Location: index.php?errorCode=101"); // redirect if movie code invalid
+    exit();
   }
 }
 
