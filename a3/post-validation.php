@@ -118,7 +118,7 @@ function validateBooking()
   // Checks for dishonest users
 
   // 1. Function from tools.php to check if the movie code is valid
-  isValidMovieCode();
+  //isValidMovieCode();
 
   // 2. Check if the day is valid and that the movie is playing on that day
   isValidDay();
