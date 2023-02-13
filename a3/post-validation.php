@@ -124,7 +124,7 @@ function validateBooking()
   // 2. Check if the day is valid and that the movie is playing on that day
   isValidDay();
 
-  // 3. The seats are blank or integers within the range 1 - 10.
+  // 3. The seats are blank or integers within the range 0 - 10.
   isValidSeatsAmount($_POST['standard-adult-seats']);
   isValidSeatsAmount($_POST['standard-concession-seats']);
   isValidSeatsAmount($_POST['standard-child-seats']);
@@ -204,8 +204,8 @@ function isValidDay()
 function isValidSeatsAmount($seatType)
 {
   $numOfSeatTypeOrdered = $_POST["$seatType"];
-  if ($numOfSeatTypeOrdered > 10 or $numOfSeatTypeOrdered < 10) {
-    header("Location: index.php"); // redirect dishonest user attempting to manipulate day field
+  if ($numOfSeatTypeOrdered > 10 or $numOfSeatTypeOrdered < 0) {
+    header("Location: index.php"); // redirect dishonest user attempting to seats field field
     exit();
   }
 }
