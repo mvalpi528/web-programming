@@ -124,15 +124,12 @@ function validateBooking()
   isValidDay();
 
   // 3. The seats are blank or integers within the range 1 - 10.
-  // isValidSeatsAmount($_POST['']);
-  // isValidSeatsAmount($_POST['']);
-  // isValidSeatsAmount($_POST['']);
-  // isValidSeatsAmount($_POST['']);
-  // isValidSeatsAmount($_POST['']);
-  // isValidSeatsAmount($_POST['']);
-
-
-
+  isValidSeatsAmount($_POST['standard-adult-seats']);
+  isValidSeatsAmount($_POST['standard-concession-seats']);
+  isValidSeatsAmount($_POST['standard-child-seats']);
+  isValidSeatsAmount($_POST['first-class-adult-seats']);
+  isValidSeatsAmount($_POST['first-class-concession-seats']);
+  isValidSeatsAmount($_POST['first-class-child-seats']);
 
   return $errors; // empty array -> no errors; populated array -> errors.
 }
