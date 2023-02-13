@@ -123,20 +123,16 @@ function validateBooking()
   // 2. Check if the day is valid and that the movie is playing on that day
   isValidDay();
 
-  $username = trim($_POST['user']['name']);
-  if ($username == '') {
-    $errors['user']['name'] = "Name can't be blank";
-  } else {
-    // more advanced name checks here with better error message
-  }
+  // 3. The seats are blank or integers within the range 1 - 10.
+  // isValidSeatsAmount($_POST['']);
+  // isValidSeatsAmount($_POST['']);
+  // isValidSeatsAmount($_POST['']);
+  // isValidSeatsAmount($_POST['']);
+  // isValidSeatsAmount($_POST['']);
+  // isValidSeatsAmount($_POST['']);
 
-  $email = trim($_POST['user']['email']);
-  if ($email == '') {
-    $errors['user']['email'] = "Email can't be blank";
-  } else {
-    // more advanced email checks here with better error message
-  }
-  // ... repeat for all other form field checks
+
+
 
   return $errors; // empty array -> no errors; populated array -> errors.
 }
@@ -149,7 +145,7 @@ function postDataExists()
     exit();
   }
 }
-
+// This function has been tested - works on core teaching but not locally
 function isValidMovieCode()
 {
   global $moviesObject;
@@ -159,6 +155,7 @@ function isValidMovieCode()
   }
 }
 
+// This function has been tested - works on core teaching but not locally
 function isValidDay()
 {
   $day = $_POST['day'];
@@ -206,6 +203,27 @@ function isValidSeatsAmount($seatType)
 {
   $numOfSeatTypeOrdered = $_POST["$seatType"];
   if ($numOfSeatTypeOrdered > 10 or $numOfSeatTypeOrdered < 10) {
-    array_push($errors, 'Number of seats must be less that 10 and greater than 0');
+    header("Location: index.php"); // redirect dishonest user attempting to manipulate day field
+    exit();
   }
 }
+
+// function isValidName()
+// {
+//   $username = trim($_POST['user']['name']);
+//   if ($username == '') {
+//     $errors['user']['name'] = "Name can't be blank";
+//   } else {
+//     // more advanced name checks here with better error message
+//   }
+// }
+
+// function isValidEmail(){
+//   $email = trim($_POST['user']['email']);
+//   if ($email == '') {
+//     $errors['user']['email'] = "Email can't be blank";
+//   } else {
+//     // more advanced email checks here with better error message
+//   }
+//   // ... repeat for all other form field checks
+// }
