@@ -25,7 +25,7 @@ include('post-validation.php');
 
 <body>
 
-  <?php checkValidMovieCode(); ?>
+  <?php isValidMovieCode(); ?>
 
   <header class="header-section">
     <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">
@@ -78,7 +78,7 @@ include('post-validation.php');
     </section>
 
     <section id="form">
-      <form action="<?php "booking.php?movie={$_GET['movie']}" ?>" target="_blank" class="booking_form" method="post">
+      <form action="booking.php?movie=ACT" target="_blank" class="booking_form" method="post">
 
 
         <div class="form-container">
@@ -205,9 +205,12 @@ include('post-validation.php');
 
 
 
-          <input type="hidden" name="movie" value="ACT">
+          <input type="hidden" name="movie" value="<?php $_GET['movie'] ?>">
 
           <button type="submit" class="submit-booking">Submit</button>
+
+
+
 
         </div>
 
