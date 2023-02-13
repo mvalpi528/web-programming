@@ -1,6 +1,6 @@
 <?php
 include('tools.php');
-include('post-validation.php');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') include('post-validation.php');
 
 ?>
 

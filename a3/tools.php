@@ -1,8 +1,7 @@
 
 <?php
-session_start();
 // this gives access to the Session data
-
+session_start();
 
 // put any custom php functions here
 
