@@ -54,15 +54,7 @@ function postDataExists()
     exit();
   }
 }
-// This function has been tested - works on core teaching but not locally
-function isValidMovieCode()
-{
-  global $moviesObject;
-  if (!isset($moviesObject[$_GET['movie']])) {
-    header("Location: index.php"); // redirect if movie code invalid
-    exit();
-  }
-}
+
 
 // This function has been tested - works on core teaching but not locally
 function isValidDay()
