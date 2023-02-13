@@ -106,14 +106,15 @@ if (!empty($_POST)) {
   validateBooking();
 }
 
+$errors = []; // new empty array to return multiple error messages
 
 function validateBooking()
 {
 
+  global $errors;
+
   // Checking to see if post data has been submitted
   postDataExists();
-
-  $errors = []; // new empty array to return multiple error messages
 
   // Checks for dishonest users
 
@@ -130,6 +131,10 @@ function validateBooking()
   isValidSeatsAmount($_POST['first-class-adult-seats']);
   isValidSeatsAmount($_POST['first-class-concession-seats']);
   isValidSeatsAmount($_POST['first-class-child-seats']);
+
+  // Checks for honest users
+
+  isAtLeastOneSeatSelected();
 
   return $errors; // empty array -> no errors; populated array -> errors.
 }
@@ -224,3 +229,10 @@ function isValidSeatsAmount($seatType)
 //   }
 //   // ... repeat for all other form field checks
 // }
+
+function isAtLeastOneSeatSelected()
+{
+  $totalSeatsSelected = $_POST['standard-adult-seats'] + $_POST['standard-concession-seats'] + $_POST['standard-child-seats'] + $_POST['first-class-adult-seats'] + $_POST['first-class-concession-seats'] + $_POST['first-class-child-seats'];
+
+  echo $totalSeatsSelected;
+}
