@@ -32,12 +32,12 @@ function validateBooking()
   isValidDay();
 
   // 3. The seats are blank or integers within the range 0 - 10.
-  isValidSeatsAmount($_POST['standard-adult-seats']);
-  isValidSeatsAmount($_POST['standard-concession-seats']);
-  isValidSeatsAmount($_POST['standard-child-seats']);
-  isValidSeatsAmount($_POST['first-class-adult-seats']);
-  isValidSeatsAmount($_POST['first-class-concession-seats']);
-  isValidSeatsAmount($_POST['first-class-child-seats']);
+  isValidSeatsQuantity($_POST['standard-adult-seats']);
+  isValidSeatsQuantity($_POST['standard-concession-seats']);
+  isValidSeatsQuantity($_POST['standard-child-seats']);
+  isValidSeatsQuantity($_POST['first-class-adult-seats']);
+  isValidSeatsQuantity($_POST['first-class-concession-seats']);
+  isValidSeatsQuantity($_POST['first-class-child-seats']);
 
   // Checks for honest users
 
@@ -108,9 +108,9 @@ function isValidDay()
 //   }
 // }
 
-function isValidSeatsAmount($seatType)
+function isValidSeatsQuantity($numOfSeatTypeOrdered)
 {
-  $numOfSeatTypeOrdered = $_POST["{$seatType}"];
+
   if ($numOfSeatTypeOrdered > 10 or $numOfSeatTypeOrdered < 0) {
     header("Location: index.php"); // redirect dishonest user attempting to seats field field
     exit();
