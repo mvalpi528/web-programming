@@ -1,6 +1,19 @@
 <?php
 include('tools.php');
-if ($_SERVER['REQUEST_METHOD'] === 'POST') include('post-validation.php');
+// if the form is submitted then the request method will be post
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // the script will only run once
+  // the difference between include and require is that if the file that
+  // is 'required' is not found then a fatal error is generated
+  require_once('post-validation.php');
+  $errorMessages = findBookingErrors();
+  // if there are no errors then add the post data to the session
+  if (count($errorMessages) == 0) {
+    $_SESSION = $_POST;
+    header("Location: receipt.php");
+    exit();
+  }
+}
 
 ?>
 
@@ -78,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') include('post-validation.php');
     </section>
 
     <section id="form">
-      <form action="booking.php?movie=ACT" target="_blank" class="booking_form" method="post">
+      <form action="booking.php?movie=<?php $GET['movie'] ?>" target="_blank" class="booking_form" method="post">
 
 
         <div class="form-container">

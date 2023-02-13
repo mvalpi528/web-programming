@@ -43,6 +43,9 @@ function validateBooking()
 
   isAtLeastOneSeatSelected();
 
+  // Check test fields
+
+
   return $errors; // empty array -> no errors; populated array -> errors.
 }
 
@@ -109,41 +112,52 @@ function isValidSeatsQuantity($numOfSeatTypeOrdered)
   }
 }
 
-// function isValidName()
-// {
-//   $username = trim($_POST['user']['name']);
-//   if ($username == '') {
-//     $errors['user']['name'] = "Name can't be blank";
-//   } else {
-//     // more advanced name checks here with better error message
-//   }
-// }
+function isValidName()
+{
+  $username = trim($_POST['user']['name']);
 
-// function isValidEmail()
-// {
-//   $email = trim($_POST['user']['email']);
-//   if ($email == '') {
-//     $errors['user']['email'] = "Email can't be blank";
-//   } else {
-//     // more advanced email checks here with better error message
-//   }
-//   // ... repeat for all other form field checks
-// }
+  if ($username == '') {
+    $errors['user']['name'] = "Name can't be blank";
+  } else {
+    if (!preg_match("/^[a-zA-Z ]*$/", $username)) {
+      $errors['user']['name'] = "Name can only contain letters and whitespace";
+    }
+  }
+}
 
-// function isValidPhoneNumber()
-// {
-//   $phoneNumber = trim($_POST['user']['email']);
-//   if ($phoneNumber == '') {
-//     $errors['user']['email'] = "Email can't be blank";
-//   } else {
-//     // more advanced email checks here with better error message
-//   }
-//   // ... repeat for all other form field checks
-// }
+function isValidEmail()
+{
+  $email = trim($_POST['user']['email']);
+  if ($email == '') {
+    $errors['user']['email'] = "Email can't be blank";
+  } else {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      return;
+    } else {
+      $errors['user']['email'] = "Please enter a valid email address";
+    }
+  }
+}
+
+function isValidPhoneNumber()
+{
+  $phoneNumber = trim($_POST['user']['mobile']);
+  if ($phoneNumber == '') {
+    $errors['user']['mobile'] = "Mobile can't be blank";
+  } else {
+    // more advanced email checks here with better error message
+  }
+}
 
 
 
 function isAtLeastOneSeatSelected()
 {
   $totalSeatsSelected = $_POST['standard-adult-seats'] + $_POST['standard-concession-seats'] + $_POST['standard-child-seats'] + $_POST['first-class-adult-seats'] + $_POST['first-class-concession-seats'] + $_POST['first-class-child-seats'];
+}
+
+function findBookingErrors()
+{
+  global $errors;
+  return $errors;
 }
