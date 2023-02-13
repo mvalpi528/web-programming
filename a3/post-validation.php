@@ -160,13 +160,13 @@ function isValidDay()
 {
   $day = $_POST['day'];
   switch ($day) {
-    case "Monday":
-    case "Tuesday":
-    case "Wednesday":
-    case "Thursday":
-    case "Friday":
-    case "Saturday":
-    case "Sunday":
+    case "monday":
+    case "tuesday":
+    case "wednesday":
+    case "thursday":
+    case "friday":
+    case "saturday":
+    case "sunday":
       break;
     default:
       header("Location: index.php"); // redirect dishonest user attempting to manipulate day field
