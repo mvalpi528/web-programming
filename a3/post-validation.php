@@ -119,7 +119,8 @@ function isValidSeatsQuantity($numOfSeatTypeOrdered)
 //   }
 // }
 
-// function isValidEmail(){
+// function isValidEmail()
+// {
 //   $email = trim($_POST['user']['email']);
 //   if ($email == '') {
 //     $errors['user']['email'] = "Email can't be blank";
@@ -129,9 +130,20 @@ function isValidSeatsQuantity($numOfSeatTypeOrdered)
 //   // ... repeat for all other form field checks
 // }
 
+// function isValidPhoneNumber()
+// {
+//   $phoneNumber = trim($_POST['user']['email']);
+//   if ($phoneNumber == '') {
+//     $errors['user']['email'] = "Email can't be blank";
+//   } else {
+//     // more advanced email checks here with better error message
+//   }
+//   // ... repeat for all other form field checks
+// }
+
+
+
 function isAtLeastOneSeatSelected()
 {
   $totalSeatsSelected = $_POST['standard-adult-seats'] + $_POST['standard-concession-seats'] + $_POST['standard-child-seats'] + $_POST['first-class-adult-seats'] + $_POST['first-class-concession-seats'] + $_POST['first-class-child-seats'];
-
-  echo $totalSeatsSelected;
 }
