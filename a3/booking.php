@@ -220,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-          <input type="hidden" name="movie" value="<?php $_GET['movie'] ?>">
+          <input type="hidden" name="movie" value="<?php echo $_GET['movie'] ?>">
 
           <button type="submit" class="submit-booking">Submit</button>
 
