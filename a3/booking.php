@@ -38,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
+  <?php echo 'testing ' . $_GET['movie'] ?>
+
   <?php isValidMovieCode(); ?>
 
   <header class="header-section">
