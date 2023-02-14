@@ -13,35 +13,35 @@ $errors = []; // new empty array to return multiple error messages
 function validateBooking()
 {
 
-  global $errors;
+  // global $errors;
 
-  // Checking to see if post data has been submitted
-  postDataExists();
+  // // Checking to see if post data has been submitted
+  // postDataExists();
 
-  // Checks for dishonest users
+  // // Checks for dishonest users
 
-  // 1. Function from tools.php to check if the movie code is valid
-  isValidMovieCode();
+  // // 1. Function from tools.php to check if the movie code is valid
+  // isValidMovieCode();
 
-  // 2. Check if the day is valid and that the movie is playing on that day
-  isValidDay();
+  // // 2. Check if the day is valid and that the movie is playing on that day
+  // isValidDay();
 
-  // 3. The seats are blank or integers within the range 0 - 10.
-  isValidSeatsQuantity($_POST['standard-adult-seats']);
-  isValidSeatsQuantity($_POST['standard-concession-seats']);
-  isValidSeatsQuantity($_POST['standard-child-seats']);
-  isValidSeatsQuantity($_POST['first-class-adult-seats']);
-  isValidSeatsQuantity($_POST['first-class-concession-seats']);
-  isValidSeatsQuantity($_POST['first-class-child-seats']);
+  // // 3. The seats are blank or integers within the range 0 - 10.
+  // isValidSeatsQuantity($_POST['standard-adult-seats']);
+  // isValidSeatsQuantity($_POST['standard-concession-seats']);
+  // isValidSeatsQuantity($_POST['standard-child-seats']);
+  // isValidSeatsQuantity($_POST['first-class-adult-seats']);
+  // isValidSeatsQuantity($_POST['first-class-concession-seats']);
+  // isValidSeatsQuantity($_POST['first-class-child-seats']);
 
-  // Checks for honest users
+  // // Checks for honest users
 
-  isAtLeastOneSeatSelected();
+  // isAtLeastOneSeatSelected();
 
-  // Check test fields
+  // // Check test fields
 
 
-  return $errors; // empty array -> no errors; populated array -> errors.
+  // return $errors; // empty array -> no errors; populated array -> errors.
 }
 
 
