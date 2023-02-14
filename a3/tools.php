@@ -266,5 +266,9 @@ function isValidMovieCode()
   }
 }
 
+function calculatePrice()
+{
+}
+
 ?>
 

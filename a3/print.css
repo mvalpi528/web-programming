@@ -1,0 +1,93 @@
+/* edit this because it is taken directly from the learning materials */
+
+@media print {
+  html,
+  body {
+    background: none;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  #utils,
+  body > header,
+  nav,
+  footer {
+    display: none !important; /* Javascript re-styling is messing with this */
+  }
+  main > article {
+    /* page-break-after: always; --maybe breaking? */
+    background-color: #eee;
+  }
+  main > article > section {
+    margin: 0px;
+    border: solid 2px #ccc;
+    background-color: #fff;
+    /* avoids breaking content across pages */
+    page-break-inside: avoid;
+    page-break-after: always;
+  }
+
+  main > article > section.title {
+    background-color: #000;
+  }
+  main > article > section header {
+    background-color: #ccc;
+  }
+  main > article > section.key header {
+    background-color: #000;
+  }
+  main > article > section.title header {
+    background-color: #000;
+  }
+  main > article > section main {
+    vertical-align: middle;
+  }
+  main > article > section.title main {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  /* modal-block currently over-flowing onto next page. Turning off for the moment. 
+    .modal-block div:nth-child(2) {
+      padding: 0.5em;
+      border:thin dotted #ccc;
+      margin: 0.5em 0;
+      display:block;
+      background: repeating-linear-gradient(
+        45deg,
+        #eee,
+        #eee 5px,
+        #fff 5px,
+        #fff 10px
+      );
+    }
+    
+    .modal-block div:nth-child(2) div {
+      display:none;
+      page-break-after: always;
+    }
+    */
+
+  img {
+    max-height: 70mm;
+    max-width: 70mm;
+    object-fit: contain;
+  }
+}
+
+@media print and (orientation: landscape) {
+  main > article > section {
+    min-height: 180mm;
+  }
+}
+
+@media print and (orientation: portrait) {
+  main > article > section {
+    min-height: 267mm;
+  }
+}
+
+/* Knockout styles for non-print media */
+@media not print {
+  figure {
+    max-width: 80%;
+  }
+}
