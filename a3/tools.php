@@ -309,6 +309,7 @@ function isDiscounted()
 {
   echo 'hello from the isDiscounted function';
   global $moviesObject;
+  echo intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']);
   if ($_POST['day'] == 'monday') {
     echo 'is discounted';
     return true;
