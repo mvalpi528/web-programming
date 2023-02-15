@@ -309,20 +309,20 @@ function isDiscounted()
 {
   echo 'hello from the isDiscounted function';
   global $moviesObject;
-  echo intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']);
+  echo intval($moviesObject[$_POST['movie']]['session-times-by-day']['wednesday']);
   if ($_POST['day'] == 'monday') {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'tuesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['tuesday']) < 18) {
+  } else if ($_POST['day'] == 'tuesday' && intval($moviesObject[$_POST['movie']]['session-times-by-day']['tuesday']) < 18) {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'wednesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']) < 18) {
+  } else if ($_POST['day'] == 'wednesday' && intval($moviesObject[$_POST['movie']]['session-times-by-day']['wednesday']) < 18) {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'thursday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['thursday']) < 18) {
+  } else if ($_POST['day'] == 'thursday' && intval($moviesObject[$_POST['movie']]['session-times-by-day']['thursday']) < 18) {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'friday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['friday']) < 18) {
+  } else if ($_POST['day'] == 'friday' && intval($moviesObject[$_POST['movie']]['session-times-by-day']['friday']) < 18) {
     echo 'is discounted';
     return true;
   } else {
