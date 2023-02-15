@@ -303,7 +303,56 @@ function isValidMovieCode()
 
 function calculatePrice()
 {
+  global $pricesObject;
+
+  $numberOfStandardAdultSeats = $_POST['standard-adult-seats'];
+  $numberOfStandardConcessionSeats = $_POST['standard-concession-seats'];
+  $numberOfStandardChildSeats = $_POST['standard-child-seats'];
+  $numberOfFirstClassAdultSeats = $_POST['first-class-adult-seats'];
+  $numberOfFirstClassConcessionSeats = $_POST['first-class-concession-seats'];
+  $numberOfFirstClassChildSeats = $_POST['first-class-child-seats'];
+
+  if (isDiscounted()) {
+    echo 'calculating discounted price';
+    $standardAdultDiscountPrice = $pricesObject['standard-adult']['disc'];
+    $standardConcessionDiscountPrice = $pricesObject['standard-concession']['disc'];
+    $standardChildDiscountPrice = $pricesObject['standard-child']['disc'];
+    $firstClassAdultDiscountPrice = $pricesObject['first-class-adult']['disc'];
+    $firstClassConcessionDiscountPrice = $pricesObject['first-class-concession']['disc'];
+    $firstClassChildDiscountPrice = $pricesObject['first-class-child']['disc'];
+
+    $subtotalStandardAdultSeats = $standardAdultDiscountPrice * $numberOfStandardAdultSeats;
+    $subtotalStandardConcessionSeats = $standardConcessionDiscountPrice * $numberOfStandardConcessionSeats;
+    $subtotalStandardChildSeats = $standardChildDiscountPrice * $numberOfStandardChildSeats;
+    $subtotalFirstClassAdultSeats = $firstClassAdultDiscountPrice * $numberOfFirstClassAdultSeats;
+    $subtotalFirstClassConcessionSeats = $firstClassConcessionDiscountPrice * $numberOfFirstClassConcessionSeats;
+    $subtotalFirstClassChildSeats = $firstClassChildDiscountPrice * $numberOfFirstClassChildSeats;
+
+    $totalPrice = $subtotalStandardAdultSeats + $subtotalStandardConcessionSeats + $subtotalStandardChildSeats + $subtotalFirstClassAdultSeats + $subtotalFirstClassConcessionSeats + $subtotalFirstClassChildSeats;
+
+    echo $totalPrice;
+  } else {
+    echo 'calculating full price';
+    $standardAdultFullPrice = $pricesObject['standard-adult']['full'];
+    $standardConcessionFullPrice = $pricesObject['standard-concession']['full'];
+    $standardChildFullPrice = $pricesObject['standard-child']['full'];
+    $firstClassAdultFullPrice = $pricesObject['first-class-adult']['full'];
+    $firstClassConcessionFullPrice = $pricesObject['first-class-concession']['full'];
+    $firstClassChildFullPrice = $pricesObject['first-class-child']['full'];
+
+    $subtotalStandardAdultSeats = $standardAdultFullPrice * $numberOfStandardAdultSeats;
+    $subtotalStandardConcessionSeats = $standardConcessionFullPrice * $numberOfStandardConcessionSeats;
+    $subtotalStandardChildSeats = $standardChildFullPrice * $numberOfStandardChildSeats;
+    $subtotalFirstClassAdultSeats = $firstClassAdultFullPrice * $numberOfFirstClassAdultSeats;
+    $subtotalFirstClassConcessionSeats = $firstClassConcessionFullPrice * $numberOfFirstClassConcessionSeats;
+    $subtotalFirstClassChildSeats = $firstClassChildFullPrice * $numberOfFirstClassChildSeats;
+
+    $totalPrice = $subtotalStandardAdultSeats + $subtotalStandardConcessionSeats + $subtotalStandardChildSeats + $subtotalFirstClassAdultSeats + $subtotalFirstClassConcessionSeats + $subtotalFirstClassChildSeats;
+
+    echo $totalPrice;
+  }
 }
+
 
 function isDiscounted()
 {

@@ -51,6 +51,7 @@ include('tools.php');
   <?php
   if (!empty($_POST)) {
     isDiscounted();
+    calculatePrice();
   } ?>
 
 
