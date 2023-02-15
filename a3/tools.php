@@ -310,16 +310,22 @@ function isDiscounted()
   echo 'hello from the isDiscounted function';
   global $moviesObject;
   if ($_POST['day'] == 'monday') {
+    echo 'is discounted';
     return true;
   } else if ($_POST['day'] == 'tuesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['tuesday']) < 6) {
+    echo 'is discounted';
     return true;
   } else if ($_POST['day'] == 'wednesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']) < 6) {
+    echo 'is discounted';
     return true;
   } else if ($_POST['day'] == 'thursday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['thursday']) < 6) {
+    echo 'is discounted';
     return true;
   } else if ($_POST['day'] == 'friday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['friday']) < 6) {
+    echo 'is discounted';
     return true;
   } else {
+    echo 'is not discounted';
     return false;
   }
 }

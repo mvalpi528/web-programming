@@ -48,6 +48,12 @@ include('tools.php');
 <body>
 
   <?php echo 'testing ' . $_GET['movie'] ?>
+  <?php
+  if (!empty($_POST)) {
+    isDiscounted();
+  } ?>
+
+
 
 
 
@@ -234,10 +240,6 @@ include('tools.php');
 
           <button type="submit" class="submit-booking">Submit</button>
 
-          <?php
-          if (!empty($_POST)) {
-            isDiscounted();
-          } ?>
 
 
         </div>
