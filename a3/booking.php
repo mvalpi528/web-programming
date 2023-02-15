@@ -4,25 +4,25 @@ include('tools.php');
 
 isValidMovieCode();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // the script will only run once
-  // the difference between include and require is that if the file that
-  // is 'required' is not found then a fatal error is generated
-  require_once('post-validation.php');
-  $errorMessages = findBookingErrors();
-  // if there are no errors then add the post data to the session
-  if (count($errorMessages) == 0) {
-    $outputToFile = fopen("bookings.txt", "a");
-    flock($outputToFile, LOCK_EX);
-    fputcsv($outputToFile, $cells, ",");
-    flock($outputToFile, LOCK_UN);
-    fclose($outputToFile);
-    $_SESSION = $_POST;
-    isDiscounted();
-    //header("Location: receipt.php");
-    //exit();
-  }
-}
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//   // the script will only run once
+//   // the difference between include and require is that if the file that
+//   // is 'required' is not found then a fatal error is generated
+//   require_once('post-validation.php');
+//   $errorMessages = findBookingErrors();
+//   // if there are no errors then add the post data to the session
+//   if (count($errorMessages) == 0) {
+
+//     $outputToFile = fopen("bookings.txt", "a");
+//     flock($outputToFile, LOCK_EX);
+//     fputcsv($outputToFile, $cells, ",");
+//     flock($outputToFile, LOCK_UN);
+//     fclose($outputToFile);
+//     $_SESSION = $_POST;
+//     header("Location: receipt.php");
+//     exit();
+//   }
+// }
 
 ?>
 
@@ -233,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           <button type="submit" class="submit-booking">Submit</button>
 
-
+          <?php isDiscounted(); ?>
 
 
         </div>
