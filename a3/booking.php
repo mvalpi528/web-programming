@@ -103,8 +103,7 @@ include('tools.php');
 
     <section id="form">
 
-      <form action="<?php $movie = $GET['movie'];
-                    echo "booking.php?movie={$movie}" ?>" target="_blank" class="booking_form" method="post">
+      <form action="booking.php?movie=ACT" target="_blank" class="booking_form" method="post">
 
 
         <div class="form-container">
