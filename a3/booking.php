@@ -2,7 +2,7 @@
 include('tools.php');
 // if the form is submitted then the request method will be post
 
-isValidMovieCode();
+// isValidMovieCode();
 
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //   // the script will only run once
