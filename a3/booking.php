@@ -1,6 +1,9 @@
 <?php
 include('tools.php');
 // if the form is submitted then the request method will be post
+
+isValidMovieCode();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // the script will only run once
   // the difference between include and require is that if the file that
@@ -9,9 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $errorMessages = findBookingErrors();
   // if there are no errors then add the post data to the session
   if (count($errorMessages) == 0) {
+    $outputToFile = fopen("bookings.txt", "a");
+    flock($outputToFile, LOCK_EX);
+    fputcsv($outputToFile, $cells, ",");
+    flock($outputToFile, LOCK_UN);
+    fclose($outputToFile);
     $_SESSION = $_POST;
-    header("Location: receipt.php");
-    exit();
+    isDiscounted();
+    //header("Location: receipt.php");
+    //exit();
   }
 }
 
@@ -40,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <?php echo 'testing ' . $_GET['movie'] ?>
 
-  <?php isValidMovieCode(); ?>
+
 
   <header class="header-section">
     <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">

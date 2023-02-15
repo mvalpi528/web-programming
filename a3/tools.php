@@ -1,4 +1,3 @@
-
 <?php
 // this gives access to the Session data
 session_start();
@@ -74,6 +73,15 @@ $moviesObject = [
       "Wed-Fri" => "9pm",
       "Sat-Sun" => "6pm",
     ],
+    "session-times-by-day" => [
+      "monday" => "9",
+      "tuesday" => "9",
+      "wednesday" => "9",
+      "thursday" => "9",
+      "friday" => "9",
+      "saturday" => "6",
+      "sunday" => "6",
+    ],
     "cast-and-crew" => [
       "Director - James Cameron",
       "Jake Sully - Sam Worthington",
@@ -90,6 +98,15 @@ $moviesObject = [
       "Mon-Tue" => "-",
       "Wed-Fri" => "12pm",
       "Sat-Sun" => "3pm"
+    ],
+    "session-times-by-day" => [
+      "monday" => "-",
+      "tuesday" => "-",
+      "wednesday" => "12",
+      "thursday" => "12",
+      "friday" => "12",
+      "saturday" => "3",
+      "sunday" => "3",
     ],
     "cast-and-crew" => [
       "Director - Eric Appel",
@@ -108,6 +125,15 @@ $moviesObject = [
       "Wed-Fri" => "6pm",
       "Sat-Sun" => "12pm",
     ],
+    "session-times-by-day" => [
+      "monday" => "12",
+      "tuesday" => "12",
+      "wednesday" => "12",
+      "thursday" => "6",
+      "friday" => "6",
+      "saturday" => "12",
+      "sunday" => "12",
+    ],
     "cast-and-crew" => [
       "Director - Joel Crawford, Januel Mercado",
       "Puss in Boots (voice) - Antonio Banderas",
@@ -125,6 +151,15 @@ $moviesObject = [
       "Mon-Tue" => "6pm",
       "Wed-Fri" => "-",
       "Sat-Sun" => "9pm",
+    ],
+    "session-times-by-day" => [
+      "monday" => "6",
+      "tuesday" => "6",
+      "wednesday" => "-",
+      "thursday" => "-",
+      "friday" => "-",
+      "saturday" => "9",
+      "sunday" => "9",
     ],
     "cast-and-crew" => [
       "Director - Charlotte Sieling",
@@ -270,5 +305,21 @@ function calculatePrice()
 {
 }
 
-?>
-
+function isDiscounted()
+{
+  echo 'hello from the isDiscounted function';
+  global $moviesObject;
+  if ($_POST['day'] == 'monday') {
+    return true;
+  } else if ($_POST['day'] == 'tuesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['tuesday']) < 6) {
+    return true;
+  } else if ($_POST['day'] == 'wednesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']) < 6) {
+    return true;
+  } else if ($_POST['day'] == 'thursday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['thursday']) < 6) {
+    return true;
+  } else if ($_POST['day'] == 'friday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['friday']) < 6) {
+    return true;
+  } else {
+    return false;
+  }
+}

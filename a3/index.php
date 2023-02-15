@@ -1,9 +1,6 @@
 <?php
 include('tools.php');
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang='en'>
