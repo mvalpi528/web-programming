@@ -74,13 +74,13 @@ $moviesObject = [
       "Sat-Sun" => "6pm",
     ],
     "session-times-by-day" => [
-      "monday" => "9",
-      "tuesday" => "9",
-      "wednesday" => "9",
-      "thursday" => "9",
-      "friday" => "9",
-      "saturday" => "6",
-      "sunday" => "6",
+      "monday" => "21",
+      "tuesday" => "21",
+      "wednesday" => "21",
+      "thursday" => "21",
+      "friday" => "21",
+      "saturday" => "18",
+      "sunday" => "18",
     ],
     "cast-and-crew" => [
       "Director - James Cameron",
@@ -105,8 +105,8 @@ $moviesObject = [
       "wednesday" => "12",
       "thursday" => "12",
       "friday" => "12",
-      "saturday" => "3",
-      "sunday" => "3",
+      "saturday" => "15",
+      "sunday" => "15",
     ],
     "cast-and-crew" => [
       "Director - Eric Appel",
@@ -129,8 +129,8 @@ $moviesObject = [
       "monday" => "12",
       "tuesday" => "12",
       "wednesday" => "12",
-      "thursday" => "6",
-      "friday" => "6",
+      "thursday" => "18",
+      "friday" => "18",
       "saturday" => "12",
       "sunday" => "12",
     ],
@@ -153,13 +153,13 @@ $moviesObject = [
       "Sat-Sun" => "9pm",
     ],
     "session-times-by-day" => [
-      "monday" => "6",
-      "tuesday" => "6",
+      "monday" => "18",
+      "tuesday" => "18",
       "wednesday" => "-",
       "thursday" => "-",
       "friday" => "-",
-      "saturday" => "9",
-      "sunday" => "9",
+      "saturday" => "21",
+      "sunday" => "21",
     ],
     "cast-and-crew" => [
       "Director - Charlotte Sieling",
@@ -312,16 +312,16 @@ function isDiscounted()
   if ($_POST['day'] == 'monday') {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'tuesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['tuesday']) < 6) {
+  } else if ($_POST['day'] == 'tuesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['tuesday']) < 18) {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'wednesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']) < 6) {
+  } else if ($_POST['day'] == 'wednesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']) < 18) {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'thursday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['thursday']) < 6) {
+  } else if ($_POST['day'] == 'thursday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['thursday']) < 18) {
     echo 'is discounted';
     return true;
-  } else if ($_POST['day'] == 'friday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['friday']) < 6) {
+  } else if ($_POST['day'] == 'friday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['friday']) < 18) {
     echo 'is discounted';
     return true;
   } else {
