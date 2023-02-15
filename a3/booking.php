@@ -233,7 +233,10 @@ isValidMovieCode();
 
           <button type="submit" class="submit-booking">Submit</button>
 
-          <?php isDiscounted(); ?>
+          <?php
+          if (!empty($_POST)) {
+            isDiscounted();
+          } ?>
 
 
         </div>
