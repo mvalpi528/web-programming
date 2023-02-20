@@ -7,6 +7,9 @@ if (empty($_SESSION['movie'])) {
     header("Location: index.php");
     exit();
 }
+
+$priceData = calculatePrice();
+
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +140,7 @@ if (empty($_SESSION['movie'])) {
                         <tr>
                             <td>
                                 Ticket number: CHECK SPREADSHEET<br />
-                                Created: CURRENT DATE
+                                Created: <?php echo date('d/m/y'); ?>
                             </td>
                             <td class="title">
 
@@ -165,9 +168,9 @@ if (empty($_SESSION['movie'])) {
                             <td></td>
                             <td></td>
                             <td>
-                                <?php $_SESSION['name'] ?><br />
-                                <?php $_SESSION['email'] ?><br />
-                                <?php $_SESSION['mobile'] ?>
+                                <?php echo $_SESSION['user']['name'] ?><br />
+                                <?php echo $_SESSION['user']['email'] ?><br />
+                                <?php echo $_SESSION['user']['mobile'] ?>
                             </td>
                         </tr>
                     </table>
@@ -178,7 +181,7 @@ if (empty($_SESSION['movie'])) {
                 <td>Movie</td>
                 <td></td>
                 <td></td>
-                <td>FROM SESSION ARRAY</td>
+                <td><?php echo $moviesObject[$_SESSION['movie']]['title']  ?></td>
             </tr>
 
             <tr class="details">
@@ -199,68 +202,77 @@ if (empty($_SESSION['movie'])) {
 
             <tr class="item">
                 <td>Standard Adult</td>
-                <td><?php $_SESSION['standard-adult-seats'] ?></td>
-                <td></td>
-                <td>Result of function call</td>
+                <td><?php echo $_SESSION['standard-adult-seats'] ?></td>
+                <td><?php echo '$' . $priceData['standard-adult-ticket-price'] ?></td>
+                <td><?php echo '$' . $priceData['subtotal-standard-adult'] ?></td>
             </tr>
 
             <tr class="item">
                 <td>Standard Concession</td>
-                <td><?php $_SESSION['standard-concession-seats'] ?></td>
-                <td></td>
-                <td>Result of function call</td>
+                <td><?php echo $_SESSION['standard-concession-seats'] ?></td>
+                <td><?php echo '$' . $priceData['standard-concession-ticket-price'] ?></td>
+                <td><?php echo '$' . $priceData['subtotal-standard-concession'] ?></td>
             </tr>
 
             <tr class="item">
                 <td>Standard Child</td>
-                <td><?php $_SESSION['standard-child-seats'] ?></td>
-                <td></td>
-                <td>Result of function call</td>
+                <td><?php echo $_SESSION['standard-child-seats'] ?></td>
+                <td><?php echo '$' . $priceData['standard-child-ticket-price'] ?></td>
+                <td><?php echo '$' . $priceData['subtotal-standard-child'] ?></td>
             </tr>
 
             <tr class="item">
                 <td>First Class Adult</td>
-                <td><?php $_SESSION['first-class-adult-seats'] ?></td>
-                <td></td>
-                <td>Result of function call</td>
+                <td><?php echo $_SESSION['first-class-adult-seats'] ?></td>
+                <td><?php echo '$' . $priceData['first-class-adult-ticket-price'] ?></td>
+                <td><?php echo '$' . $priceData['subtotal-first-class-adult'] ?></td>
             </tr>
 
             <tr class="item">
                 <td>First Class Concession</td>
-                <td><?php $_SESSION['first-class-concession-seats'] ?></td>
-                <td></td>
-                <td>Result of function call</td>
-            </tr>
-
-            <tr class="item">
-                <td>First Class Child</td>
-                <td><?php $_SESSION['first-class-child-seats'] ?></td>
-                <td></td>
-                <td>Result of function call</td>
+                <td><?php echo $_SESSION['first-class-concession-seats'] ?></td>
+                <td><?php echo '$' . $priceData['first-class-concession-ticket-price'] ?></td>
+                <td><?php echo '$' . $priceData['subtotal-first-class-concession'] ?></td>
             </tr>
 
             <tr class="item last">
-                <td>Domain name (1 year)</td>
-                <td>Seat type</td>
-                <td>Seat type</td>
-                <td>$10.00</td>
+                <td>First Class Child</td>
+                <td><?php echo $_SESSION['first-class-child-seats'] ?></td>
+                <td><?php echo '$' . $priceData['first-class-child-ticket-price'] ?></td>
+                <td><?php echo '$' . $priceData['subtotal-first-class-child'] ?></td>
             </tr>
 
             <tr class="total">
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Total: = the result of all the subtotals</td>
+                <td>Total: <?php echo '$' . $priceData['total-price'] ?></td>
             </tr>
+
+            <tr class="item">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>GST: <?php echo '$' . $priceData['GST'] ?></td>
+            </tr>
+
         </table>
     </div>
 
 
 
-
-
-
-
+    <aside id="debug">
+        <hr>
+        <h3>Debug Area</h3>
+        <pre>
+GET Contains:
+<?php print_r($_GET) ?>
+POST Contains:
+<?php print_r($_POST) ?>
+SESSION Contains:
+<?php print_r($_SESSION) ?>
+      </pre>
+    </aside>
 
 </body>
 

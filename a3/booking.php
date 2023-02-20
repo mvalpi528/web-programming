@@ -2,27 +2,31 @@
 include('tools.php');
 // if the form is submitted then the request method will be post
 
-// isValidMovieCode();
+isValidMovieCode();
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//   // the script will only run once
-//   // the difference between include and require is that if the file that
-//   // is 'required' is not found then a fatal error is generated
-//   require_once('post-validation.php');
-//   $errorMessages = findBookingErrors();
-//   // if there are no errors then add the post data to the session
-//   if (count($errorMessages) == 0) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // the script will only run once
+  // the difference between include and require is that if the file that
+  // is 'required' is not found then a fatal error is generated
+  require_once('post-validation.php');
+  if (!empty($_POST)) {
+    validateBooking();
+    $errorMessages = findBookingErrors();
+  }
 
-//     $outputToFile = fopen("bookings.txt", "a");
-//     flock($outputToFile, LOCK_EX);
-//     fputcsv($outputToFile, $cells, ",");
-//     flock($outputToFile, LOCK_UN);
-//     fclose($outputToFile);
-//     $_SESSION = $_POST;
-//     header("Location: receipt.php");
-//     exit();
-//   }
-// }
+  // if there are no errors then add the post data to the session
+  if (count($errorMessages) == 0) {
+    $_SESSION = $_POST;
+    $cells = generateCells();
+    $outputToFile = fopen("bookings.txt", "a");
+    flock($outputToFile, LOCK_EX);
+    fputcsv($outputToFile, $cells, ",");
+    flock($outputToFile, LOCK_UN);
+    fclose($outputToFile);
+    header("Location: receipt.php");
+    exit();
+  }
+}
 
 ?>
 
@@ -50,8 +54,8 @@ include('tools.php');
   <?php echo 'testing ' . $_GET['movie'] ?>
   <?php
   if (!empty($_POST)) {
-    isDiscounted();
-    calculatePrice();
+    // isDiscounted();
+    // calculatePrice();
   } ?>
 
 
@@ -120,7 +124,9 @@ include('tools.php');
             <br>
             <label for="name">Name:</label>
             <br>
-            <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}">
+            <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}" value="<?php if (!empty($_POST)) {
+                                                                                                                                                  echo $_POST['user']['name'];
+                                                                                                                                                } ?>">
             <br>
 
             <label for="email">Email Address:</label>
@@ -139,7 +145,7 @@ include('tools.php');
           <fieldset>
             <legend>Seats</legend>
             <label for="standard-adult-seats">Standard Adult Seats</label>
-            <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16" onchange="getNumStandardAdultSeats()">
+            <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16" onchange="getNumStandardAdultSeats(); calculatePrice()">
               <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -155,7 +161,7 @@ include('tools.php');
             <br>
 
             <label for="standard-concession-seats">Standard Concession Seats</label>
-            <select name="standard-concession-seats" id="standard-concession-seats" data-fullprice="19" data-discprice="14.5" onchange="getNumStandardConcessionSeats()">
+            <select name="standard-concession-seats" id="standard-concession-seats" data-fullprice="19" data-discprice="14.5" onchange="getNumStandardConcessionSeats(); calculatePrice()">
               <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -171,7 +177,7 @@ include('tools.php');
             <br>
 
             <label for="standard-child-seats">Standard Child Seats</label>
-            <select name="standard-child-seats" id="standard-child-seats" data-fullprice="17.5" data-discprice="13" onchange="getNumStandardChildSeats()">
+            <select name="standard-child-seats" id="standard-child-seats" data-fullprice="17.5" data-discprice="13" onchange="getNumStandardChildSeats(); calculatePrice()">
               <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -187,7 +193,7 @@ include('tools.php');
             <br>
 
             <label for="first-class-adult-seats">First Class Adult Seats</label>
-            <select name="first-class-adult-seats" id="first-class-adult-seats" data-fullprice="31" data-discprice="25" onchange="getNumFirstClassAdultSeats()">
+            <select name="first-class-adult-seats" id="first-class-adult-seats" data-fullprice="31" data-discprice="25" onchange="getNumFirstClassAdultSeats(); calculatePrice()">
               <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -203,7 +209,7 @@ include('tools.php');
             <br>
 
             <label for="first-class-concession-seats">First Class Concession Seats</label>
-            <select name="first-class-concession-seats" id="first-class-concession-seats" data-fullprice="28" data-discprice="23.5" onchange="getNumFirstClassConcessionSeats()">
+            <select name="first-class-concession-seats" id="first-class-concession-seats" data-fullprice="28" data-discprice="23.5" onchange="getNumFirstClassConcessionSeats(); calculatePrice()">
               <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -219,7 +225,7 @@ include('tools.php');
             <br>
 
             <label for="first-class-child-seats">First Class Child Seats</label>
-            <select name="first-class-child-seats" id="first-class-child-seats" data-fullprice="25" data-discprice="22" onchange="getNumFirstClassChildSeats()">
+            <select name="first-class-child-seats" id="first-class-child-seats" data-fullprice="25" data-discprice="22" onchange="getNumFirstClassChildSeats(); calculatePrice()">
               <option value="0">please select</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -240,6 +246,8 @@ include('tools.php');
           <input type="hidden" name="movie" value="<?php echo $_GET['movie'] ?>">
 
           <button type="submit" class="submit-booking">Submit</button>
+
+          <p id="total-price">Current Total: $</p>
 
 
 
@@ -280,6 +288,8 @@ POST Contains:
 <?php print_r($_POST) ?>
 SESSION Contains:
 <?php print_r($_SESSION) ?>
+ERRORS Contains:
+<?php print_r($errorMessages) ?>
       </pre>
   </aside>
 
