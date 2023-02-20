@@ -35,19 +35,15 @@ console.log(sections[0].offsetTop + "");
 
 // 5.2 Price Calculation Client Side
 
-let numStandardAdultSeats = 0;
-let numStandardConcessionSeats = 0;
-let numStandardChildSeats = 0;
-let numFirstClassAdultSeats = 0;
-let numFirstClassConcessionSeats = 0;
-let numFirstClassChildSeats = 0;
 let sessionTime;
 let dataPricing;
 
 function getNumStandardAdultSeats() {
+  let numStandardAdultSeats = 0;
   numStandardAdultSeats = parseInt(
     document.getElementById("standard-adult-seats").value
   );
+  return numStandardAdultSeats;
   /*
   console.log(
     `The number of standard adult seats selected is ${numStandardAdultSeats}`
@@ -56,9 +52,11 @@ function getNumStandardAdultSeats() {
 }
 
 function getNumStandardConcessionSeats() {
+  let numStandardConcessionSeats = 0;
   numStandardConcessionSeats = parseInt(
     document.getElementById("standard-concession-seats").value
   );
+  return numStandardConcessionSeats;
   /*
   console.log(
     `The number of standard concession seats selected is ${numStandardConcessionSeats}`
@@ -67,9 +65,11 @@ function getNumStandardConcessionSeats() {
 }
 
 function getNumStandardChildSeats() {
+  let numStandardChildSeats = 0;
   numStandardChildSeats = parseInt(
     document.getElementById("standard-child-seats").value
   );
+  return numStandardChildSeats;
   /*
   console.log(
     `The number of standard child seats selected is ${numStandardChildSeats}`
@@ -80,9 +80,11 @@ function getNumStandardChildSeats() {
 // First class
 
 function getNumFirstClassAdultSeats() {
+  let numFirstClassAdultSeats = 0;
   numFirstClassAdultSeats = parseInt(
     document.getElementById("first-class-adult-seats").value
   );
+  return numFirstClassAdultSeats;
   /*
   console.log(
     `The number of first class adult seats selected is ${numFirstClassAdultSeats}`
@@ -91,9 +93,11 @@ function getNumFirstClassAdultSeats() {
 }
 
 function getNumFirstClassConcessionSeats() {
+  let numFirstClassConcessionSeats = 0;
   numFirstClassConcessionSeats = parseInt(
     document.getElementById("first-class-concession-seats").value
   );
+  return numFirstClassConcessionSeats;
   /*
   console.log(
     `The number of first class concession seats selected is ${numFirstClassConcessionSeats}`
@@ -102,9 +106,11 @@ function getNumFirstClassConcessionSeats() {
 }
 
 function getNumFirstClassChildSeats() {
+  let numFirstClassChildSeats = 0;
   numFirstClassChildSeats = parseInt(
     document.getElementById("first-class-child-seats").value
   );
+  return numFirstClassChildSeats;
   /*
   console.log(
     `The number of first class child seats selected is ${numFirstClassChildSeats}`
@@ -249,42 +255,24 @@ function getFirstClassChildSeatPrice() {
 // document.body.addEventListener("dblclick", calculatePrice);
 
 function calculatePrice() {
+  let numStandardAdultSeats = getNumStandardAdultSeats();
+  let numStandardConcessionSeats = getNumStandardConcessionSeats();
+  let numStandardChildSeats = getNumStandardChildSeats();
+  let numFirstClassAdultSeats = getNumFirstClassAdultSeats();
+  let numFirstClassConcessionSeats = getNumFirstClassConcessionSeats();
+  let numFirstClassChildSeats = getNumFirstClassChildSeats();
+
   let standardAdultSeatPrice = getStandardAdultSeatPrice();
-  console.log(typeof standardAdultSeatPrice);
-  console.log(
-    "The price of a standard adult seat for the selected sesion is: $" +
-      standardAdultSeatPrice
-  );
+
   let standardConcessionSeatPrice = getStandardConcessionSeatPrice();
-  console.log(typeof standardConcessionSeatPrice);
-  console.log(
-    "The price of a standard concession seat for the selected sesion is: $" +
-      standardConcessionSeatPrice
-  );
+
   let standardChildSeatPrice = getStandardChildSeatPrice();
-  console.log(typeof standardChildSeatPrice);
-  console.log(
-    "The price of a standard child seat for the selected sesion is: $" +
-      standardChildSeatPrice
-  );
+
   let firstClassAdultSeatPrice = getFirstClassAdultSeatPrice();
-  console.log(typeof firstClassAdultSeatPrice);
-  console.log(
-    "The price of a first class adult seat for the selected sesion is: $" +
-      firstClassAdultSeatPrice
-  );
+
   let firstClassConcessionSeatPrice = getFirstClassConcessionSeatPrice();
-  console.log(typeof firstClassConcessionSeatPrice);
-  console.log(
-    "The price of a first class concession seat for the selected sesion is: $" +
-      firstClassConcessionSeatPrice
-  );
+
   let firstClassChildSeatPrice = getFirstClassChildSeatPrice();
-  console.log(typeof firstClassChildSeatPrice);
-  console.log(
-    "The price of a first class child seat for the selected sesion is: $" +
-      firstClassChildSeatPrice
-  );
 
   console.log(
     "The number of standard adult seats selected is: " + numStandardAdultSeats
@@ -353,8 +341,6 @@ function calculatePrice() {
     `The breakdown of your order is ${totalCostOfStandardAdultSeats} + ${totalCostOfStandardConcessionSeats} + ${totalCostOfStandardChildSeats} + ${totalCostOfFirstClassAdultSeats} + ${totalCostOfFirstClassConcessionSeats} + ${totalCostOfFirstClassChildSeats}`
   );
 
-  if (typeof totalPrice === number) {
-    document.getElementById("total-price").innerHTML =
-      "$" + totalPrice.toFixed(2);
-  }
+  document.getElementById("total-price").innerHTML =
+    "Current Total: $" + totalPrice.toFixed(2);
 }
