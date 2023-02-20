@@ -256,39 +256,23 @@ function loadCastAndCrew()
 function loadSessionTimes($movieID)
 {
   global $moviesObject;
+  echo '<fieldset onchange="getSessionTime()">
+  <legend>Session Times</legend>';
 
-  echo <<<"CDATA"
-  <fieldset onchange="getSessionTime()">
-            <legend>Session Times</legend>
-
-            <input type="radio" id="monday" name="day" value="monday" data-pricing="discprice" onchange="getSessionTime(); calculatePrice()">
-            <label for="monday">Monday - {$moviesObject[$movieID]['session-times']['Mon-Tue']}</label>
-
-            <input type="radio" id="tuesday" name="day" value="tuesday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
-            <label for="tuesday">Tuesday - {$moviesObject[$movieID]['session-times']['Mon-Tue']}</label>
-
-            <input type="radio" id="wednesday" name="day" value="wednesday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
-            <label for="wednesday">Wednesday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
-
-
-            <input type="radio" id="thursday" name="day" value="thursday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
-            <label for="thursday">Thursday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
-
-
-            <input type="radio" id="friday" name="day" value="friday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
-            <label for="friday">Friday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
-
-
-            <input type="radio" id="saturday" name="day" value="saturday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
-            <label for="saturday">Saturday - {$moviesObject[$movieID]['session-times']['Sat-Sun']}</label>
-
-
-            <input type="radio" id="sunday" name="day" value="sunday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
-            <label for="sunday">Sunday - {$moviesObject[$movieID]['session-times']['Sat-Sun']}</label>
-
-          </fieldset>
-
-  CDATA;
+  foreach ($moviesObject[$movieID]['session-times-by-day'] as $day => $time) {
+    if (isDiscountedGet($day)) {
+      $price = "discprice";
+    } else {
+      $price = "fullprice";
+    }
+    if ($time !== '-') {
+      echo <<<"CDATA"
+            <input type="radio" id="{$day}" name="day" value="{$day}" data-pricing="{$price}" onchange="getSessionTime(); calculatePrice()">
+            <label for="{$day}">{$day} - {$moviesObject[$movieID]['session-times-by-day'][$day]}</label>
+            CDATA;
+    }
+  }
+  echo "</fieldset>";
 }
 
 // This function has been tested - works on core teaching but not locally
@@ -480,6 +464,31 @@ function isDiscounted()
   }
 }
 
+function isDiscountedGet($day)
+{
+  global $moviesObject;
+  if ($day == 'monday') {
+    //echo 'This session is discounted' . '<br><br>';
+    return true;
+  } else if ($day == 'tuesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['tuesday']) < 18) {
+    //echo 'is discounted';
+    return true;
+  } else if ($day == 'wednesday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['wednesday']) < 18) {
+    //echo 'is discounted';
+    return true;
+  } else if ($day == 'thursday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['thursday']) < 18) {
+    //echo 'is discounted';
+    return true;
+  } else if ($day == 'friday' && intval($moviesObject[$_GET['movie']]['session-times-by-day']['friday']) < 18) {
+    //echo 'is discounted';
+    return true;
+  } else {
+    //echo 'is not discounted' . '<br><br>';
+    return false;
+  }
+}
+
+
 function generateCells()
 {
   global $moviesObject;
@@ -499,4 +508,41 @@ function generateCells()
     ];
   }
   return $cells;
+}
+
+function formerLoadSessionTimes($movieID)
+{
+  global $moviesObject;
+  echo <<<"CDATA"
+  <fieldset onchange="getSessionTime()">
+            <legend>Session Times</legend>
+
+            <input type="radio" id="monday" name="day" value="monday" data-pricing="discprice" onchange="getSessionTime(); calculatePrice()">
+            <label for="monday">Monday - {$moviesObject[$movieID]['session-times']['Mon-Tue']}</label>
+
+            <input type="radio" id="tuesday" name="day" value="tuesday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
+            <label for="tuesday">Tuesday - {$moviesObject[$movieID]['session-times']['Mon-Tue']}</label>
+
+            <input type="radio" id="wednesday" name="day" value="wednesday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
+            <label for="wednesday">Wednesday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
+
+
+            <input type="radio" id="thursday" name="day" value="thursday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
+            <label for="thursday">Thursday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
+
+
+            <input type="radio" id="friday" name="day" value="friday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
+            <label for="friday">Friday - {$moviesObject[$movieID]['session-times']['Wed-Fri']}</label>
+
+
+            <input type="radio" id="saturday" name="day" value="saturday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
+            <label for="saturday">Saturday - {$moviesObject[$movieID]['session-times']['Sat-Sun']}</label>
+
+
+            <input type="radio" id="sunday" name="day" value="sunday" data-pricing="fullprice" onchange="getSessionTime(); calculatePrice()">
+            <label for="sunday">Sunday - {$moviesObject[$movieID]['session-times']['Sat-Sun']}</label>
+
+          </fieldset>
+
+  CDATA;
 }
