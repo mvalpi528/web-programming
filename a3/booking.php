@@ -153,7 +153,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           <fieldset>
             <legend>Seats</legend>
-            <span class='error'><?php echo $errors['seats'] ?></span>
+            <span class='error'><?php if (isset($errorMessages['seats'])) {
+                                  echo $errorsMessages['seats'];
+                                }  ?></span>
             <label for="standard-adult-seats">Standard Adult Seats</label>
             <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16" onchange="calculatePrice()">
               <option value="0">please select</option>
