@@ -33,33 +33,33 @@ function validateBooking()
     exit();
   }
 
-  // // 3. The seats are blank or integers within the range 0 - 10.
-  // if (!isValidSeatsQuantity($_POST['standard-adult-seats'])) {
-  //   header("Location: index.php");
-  //   exit();
-  // }
-  // if (!isValidSeatsQuantity($_POST['standard-concession-seats'])) {
-  //   header("Location: index.php");
-  //   exit();
-  // }
-  // if (!isValidSeatsQuantity($_POST['standard-child-seats'])) {
-  //   header("Location: index.php");
-  //   exit();
-  // }
-  // if (!isValidSeatsQuantity($_POST['first-class-adult-seats'])) {
-  //   header("Location: index.php");
-  //   exit();
-  // }
-  // if (!isValidSeatsQuantity($_POST['first-class-concession-seats'])) {
-  //   header("Location: index.php");
-  //   exit();
-  // }
-  // if (!isValidSeatsQuantity($_POST['first-class-child-seats'])) {
-  //   header("Location: index.php");
-  //   exit();
-  // }
+  // 3. The seats are blank or integers within the range 0 - 10.
+  if (isInvalidSeatsQuantity($_POST['standard-adult-seats'])) {
+    header("Location: index.php");
+    exit();
+  }
+  if (isInvalidSeatsQuantity($_POST['standard-concession-seats'])) {
+    header("Location: index.php");
+    exit();
+  }
+  if (isInvalidSeatsQuantity($_POST['standard-child-seats'])) {
+    header("Location: index.php");
+    exit();
+  }
+  if (isInvalidSeatsQuantity($_POST['first-class-adult-seats'])) {
+    header("Location: index.php");
+    exit();
+  }
+  if (isInvalidSeatsQuantity($_POST['first-class-concession-seats'])) {
+    header("Location: index.php");
+    exit();
+  }
+  if (isInvalidSeatsQuantity($_POST['first-class-child-seats'])) {
+    header("Location: index.php");
+    exit();
+  }
 
-  // // Checks for honest users
+  // Checks for honest users
 
   isAtLeastOneSeatSelected();
 
@@ -112,11 +112,10 @@ function isMoviePlaying()
   }
 }
 
-function isValidSeatsQuantity($numOfSeatTypeOrdered)
+function isInvalidSeatsQuantity($numOfSeatTypeOrdered)
 {
-
   if ($numOfSeatTypeOrdered > 10 or $numOfSeatTypeOrdered < 0) {
-    return false;
+    return true;
   }
 }
 

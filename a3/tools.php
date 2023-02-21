@@ -39,6 +39,8 @@ function php2js($arr, $arrName)
 CDATA;
 }
 
+$ticketNumber = 0;
+
 $pricesObject = [
   "standard-adult" => [
     "full" => 21.5,

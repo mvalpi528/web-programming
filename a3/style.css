@@ -584,6 +584,12 @@ fieldset input[type="radio"]:checked + label {
   color: aqua;
 }
 
+/* Error */
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
 /** Media Queries **/
 
 /** Desktop **/

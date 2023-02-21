@@ -4,6 +4,8 @@ include('tools.php');
 
 isValidMovieCode();
 
+$errorMessages = [];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // the script will only run once
   // the difference between include and require is that if the file that
@@ -23,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     fputcsv($outputToFile, $cells, ",");
     flock($outputToFile, LOCK_UN);
     fclose($outputToFile);
+    $ticketNumber++;
     header("Location: receipt.php");
     exit();
   }
@@ -124,19 +127,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="name">Name:</label>
 
-            <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}" value="<?php if (!empty($_POST)) {
-                                                                                                                                                  echo $_POST['user']['name'];
-                                                                                                                                                } ?>">
+            <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}" value="<?php $_POST['user']['name'] ?>">
 
+            <?php echo $errorMessages['user']['name']; ?>
 
             <label for="email">Email Address:</label>
 
-            <input type="email" id="email" name="user[email]" required>
+            <input type="email" id="email" name="user[email]" required value="<?php $_POST['user']['email'] ?>">
 
+            <?php echo $errors['user']['email'] ?>
 
             <label for="mobile-number">Mobile Number:</label>
 
-            <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number">
+            <?php echo $errors['user']['mobile'] ?>
+
+            <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number" value="<?php $_POST['user']['mobile'] ?>">
 
           </fieldset>
 
@@ -144,9 +149,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           <fieldset>
             <legend>Seats</legend>
+            <span class='error'><?php echo $errors['seats'] ?></span>
             <label for="standard-adult-seats">Standard Adult Seats</label>
             <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16" onchange="calculatePrice()">
               <option value="0">please select</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -163,6 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="standard-concession-seats">Standard Concession Seats</label>
             <select name="standard-concession-seats" id="standard-concession-seats" data-fullprice="19" data-discprice="14.5" onchange="calculatePrice()">
               <option value="0">please select</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -179,6 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="standard-child-seats">Standard Child Seats</label>
             <select name="standard-child-seats" id="standard-child-seats" data-fullprice="17.5" data-discprice="13" onchange="calculatePrice()">
               <option value="0">please select</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -195,6 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="first-class-adult-seats">First Class Adult Seats</label>
             <select name="first-class-adult-seats" id="first-class-adult-seats" data-fullprice="31" data-discprice="25" onchange="calculatePrice()">
               <option value="0">please select</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -211,6 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="first-class-concession-seats">First Class Concession Seats</label>
             <select name="first-class-concession-seats" id="first-class-concession-seats" data-fullprice="28" data-discprice="23.5" onchange="calculatePrice()">
               <option value="0">please select</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -227,6 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="first-class-child-seats">First Class Child Seats</label>
             <select name="first-class-child-seats" id="first-class-child-seats" data-fullprice="25" data-discprice="22" onchange="calculatePrice()">
               <option value="0">please select</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
