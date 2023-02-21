@@ -54,21 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-  <?php echo 'testing ' . $_GET['movie'] ?>
   <?php
   if (!empty($_POST)) {
     // isDiscounted();
     // calculatePrice();
   } ?>
 
-
-
-
-
-  <header class="header-section">
-    <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">
-    <h1 class="website-heading">Lunardo Cinemas</h1>
-  </header>
+  <?php generateHeader(); ?>
 
   <nav>
     <div>
@@ -127,13 +119,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="name">Name:</label>
 
-            <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}" value="<?php $_POST['user']['name'] ?>">
+            <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}" value="<?php if (!empty($_POST['user']['name'])) {
+                                                                                                                                                  echo $_POST['user']['name'];
+                                                                                                                                                } ?>">
 
             <?php echo $errorMessages['user']['name']; ?>
 
             <label for="email">Email Address:</label>
 
-            <input type="email" id="email" name="user[email]" required value="<?php $_POST['user']['email'] ?>">
+            <input type="email" id="email" name="user[email]" required value="<?php if (!empty($_POST['user']['email'])) {
+                                                                                echo $_POST['user']['email'];
+                                                                              } ?>">
 
             <?php echo $errors['user']['email'] ?>
 
@@ -141,7 +137,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <?php echo $errors['user']['mobile'] ?>
 
-            <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number" value="<?php $_POST['user']['mobile'] ?>">
+            <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number" value="<?php if (!empty($_POST['user']['mobile'])) {
+                                                                                                                                                                                  echo $_POST['user']['mobile'];
+                                                                                                                                                                                } ?>">
 
           </fieldset>
 
@@ -273,23 +271,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
   </main>
-  <footer>
+  <?php generateFooter() ?>
 
-    <address id="contact_information">
-      Phone: 9876 5432<br>
-      Email: contact_us@lunardocinemas.com<br>
-      Address: 132 main st, Lunardo, NSW
-    </address>
-
-    <div>&copy;<script>
-        document.write(new Date().getFullYear());
-      </script> Marc Valpiani, s3907456, Last Modified: <?= date("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
-    <a href="https://github.com/mvalpi528/wp" id="github_link" class="github-link">Find me on github</a>
-    <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-    <div>
-      <button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button>
-    </div>
-  </footer>
   <aside id="debug">
     <hr>
     <h3>Debug Area</h3>

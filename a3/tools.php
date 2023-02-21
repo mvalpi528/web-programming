@@ -551,3 +551,51 @@ function generateCells()
 
 //   CDATA;
 // }
+
+function generateHeader()
+{
+  echo <<<"CDATA"
+      <header class="header-section">
+      <img src="../../media/lunardo-logo.png" alt="Lunardo Logo" class="header-logo">
+      <h1 class="website-heading">Lunardo Cinemas</h1>
+      </header>
+  CDATA;
+}
+
+function generateFooter()
+{
+  echo <<<"CDATA"
+      <footer>
+
+      <address id="contact_information">
+        Phone: 9876 5432<br>
+        Email: contact_us@lunardocinemas.com<br>
+        Address: 132 main st, Lunardo, NSW
+      </address>
+
+      <div>&copy;<script>
+          document.write(new Date().getFullYear());
+        </script> Marc Valpiani, s3907456, Last Modified: <?= date("Y F d  H:i", filemtime({$_SERVER['SCRIPT_FILENAME']})); ?>.</div>
+      <a href="https://github.com/mvalpi528/wp" class="github-link">Find me on github</a>
+      <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
+      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+      </footer>
+  CDATA;
+}
+
+function generateDebugModule()
+{
+  echo <<<"CDATA"
+        <aside id="debug">
+        <hr>
+        <h3>Debug Area</h3>
+        <pre>
+      GET Contains:
+      <?php print_r($_GET) ?>
+      POST Contains:
+      <?php print_r($_POST) ?>
+      SESSION Contains:
+      <?php print_r($_SESSION) ?>
+      </aside>
+  CDATA;
+}
