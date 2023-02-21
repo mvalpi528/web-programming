@@ -510,13 +510,17 @@ div.card3D:hover > div:nth-child(2) {
 .booking_form {
   margin-top: 100px;
   margin-bottom: 100px;
+
   text-align: center;
 }
 
 .form-container {
   display: grid;
+  grid-template-columns: 1fr;
   place-items: center;
   gap: 30px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 fieldset {
@@ -596,6 +600,13 @@ fieldset input[type="radio"]:checked + label {
     justify-items: center;
     align-items: space-around;
   }
+
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 30px;
+  }
 }
 
 /** Tablet **/
@@ -605,5 +616,12 @@ fieldset input[type="radio"]:checked + label {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
+  }
+
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 30px;
   }
 }

@@ -116,28 +116,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <form action="booking.php?movie=ACT" target="_blank" class="booking_form" method="post">
 
-
+        <h2>Book now</h2>
         <div class="form-container">
-          <h2>Book now</h2>
+
           <fieldset>
             <legend>Contact Information</legend>
-            <br>
+
             <label for="name">Name:</label>
-            <br>
+
             <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}" value="<?php if (!empty($_POST)) {
                                                                                                                                                   echo $_POST['user']['name'];
                                                                                                                                                 } ?>">
-            <br>
+
 
             <label for="email">Email Address:</label>
-            <br>
+
             <input type="email" id="email" name="user[email]" required>
-            <br>
+
 
             <label for="mobile-number">Mobile Number:</label>
-            <br>
+
             <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}">
-            <br>
+
           </fieldset>
 
           <?php loadSessionTimes($_GET['movie']) ?>
@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-            <br>
+
 
             <label for="standard-concession-seats">Standard Concession Seats</label>
             <select name="standard-concession-seats" id="standard-concession-seats" data-fullprice="19" data-discprice="14.5" onchange="calculatePrice()">
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-            <br>
+
 
             <label for="standard-child-seats">Standard Child Seats</label>
             <select name="standard-child-seats" id="standard-child-seats" data-fullprice="17.5" data-discprice="13" onchange="calculatePrice()">
@@ -190,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-            <br>
+
 
             <label for="first-class-adult-seats">First Class Adult Seats</label>
             <select name="first-class-adult-seats" id="first-class-adult-seats" data-fullprice="31" data-discprice="25" onchange="calculatePrice()">
@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-            <br>
+
 
             <label for="first-class-concession-seats">First Class Concession Seats</label>
             <select name="first-class-concession-seats" id="first-class-concession-seats" data-fullprice="28" data-discprice="23.5" onchange="calculatePrice()">
@@ -222,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-            <br>
+
 
             <label for="first-class-child-seats">First Class Child Seats</label>
             <select name="first-class-child-seats" id="first-class-child-seats" data-fullprice="25" data-discprice="22" onchange="calculatePrice()">
@@ -238,21 +238,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-            <br>
+
           </fieldset>
 
 
 
           <input type="hidden" name="movie" value="<?php echo $_GET['movie'] ?>">
 
-          <button type="submit" class="submit-booking">Submit</button>
 
-          <p id="total-price">Current Total: $0.00</p>
 
 
 
         </div>
+        <button type="submit" class="submit-booking">Submit</button>
 
+        <p id="total-price">Current Total:</p>
       </form>
 
 

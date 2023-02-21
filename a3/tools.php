@@ -268,7 +268,7 @@ function loadSessionTimes($movieID)
     if ($time !== '-') {
       echo <<<"CDATA"
             <input type="radio" id="{$day}" name="day" value="{$day}" data-pricing="{$price}" onchange="getSessionTime(); calculatePrice()">
-            <label for="{$day}">{$day} - {$moviesObject[$movieID]['session-times-by-day'][$day]}</label>
+            <label for="{$day}">{$day} - {$moviesObject[$movieID]['session-times-by-day'][$day]}:00</label>
             CDATA;
     }
   }

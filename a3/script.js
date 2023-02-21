@@ -341,6 +341,8 @@ function calculatePrice() {
     `The breakdown of your order is ${totalCostOfStandardAdultSeats} + ${totalCostOfStandardConcessionSeats} + ${totalCostOfStandardChildSeats} + ${totalCostOfFirstClassAdultSeats} + ${totalCostOfFirstClassConcessionSeats} + ${totalCostOfFirstClassChildSeats}`
   );
 
-  document.getElementById("total-price").innerHTML =
-    "Current Total: $" + totalPrice.toFixed(2);
+  if (totalPrice !== 0) {
+    document.getElementById("total-price").innerHTML =
+      "Current Total: $" + totalPrice.toFixed(2);
+  }
 }
