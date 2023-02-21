@@ -123,7 +123,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                                                                                                                   echo $_POST['user']['name'];
                                                                                                                                                 } ?>">
 
-            <?php echo $errorMessages['user']['name']; ?>
+            <?php if (isset($errorMessages['user']['name'])) {
+              echo $errorMessages['user']['name'];
+            } ?>
 
             <label for="email">Email Address:</label>
 
@@ -131,11 +133,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                                                 echo $_POST['user']['email'];
                                                                               } ?>">
 
-            <?php echo $errorsMessages['user']['email'] ?>
+            <?php if (isset($errorMessages['user']['email'])) {
+              echo $errorsMessages['user']['email'];
+            } ?>
 
             <label for="mobile-number">Mobile Number:</label>
 
-            <?php echo $errorsMessages['user']['mobile'] ?>
+            <?php if (isset($errorMessages['user']['mobile'])) {
+              echo $errorsMessages['user']['mobile'];
+            } ?>
 
             <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number" value="<?php if (!empty($_POST['user']['mobile'])) {
                                                                                                                                                                                   echo $_POST['user']['mobile'];
