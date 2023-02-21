@@ -346,5 +346,7 @@ function calculatePrice() {
       "Current Total: $" + totalPrice.toFixed(2);
   } else if (totalPrice === NaN) {
     document.getElementById("total-price").innerHTML = "Current Total: ";
+  } else if (totalPrice === 0) {
+    document.getElementById("total-price").innerHTML = "Current Total: ";
   }
 }
