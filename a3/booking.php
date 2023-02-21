@@ -131,11 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                                                 echo $_POST['user']['email'];
                                                                               } ?>">
 
-            <?php echo $errors['user']['email'] ?>
+            <?php echo $errorsMessages['user']['email'] ?>
 
             <label for="mobile-number">Mobile Number:</label>
 
-            <?php echo $errors['user']['mobile'] ?>
+            <?php echo $errorsMessages['user']['mobile'] ?>
 
             <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number" value="<?php if (!empty($_POST['user']['mobile'])) {
                                                                                                                                                                                   echo $_POST['user']['mobile'];
