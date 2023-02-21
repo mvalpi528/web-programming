@@ -253,7 +253,7 @@ $priceData = calculatePrice();
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>GST: <?php echo '$' . $priceData['GST'] ?></td>
+                <td>GST: <?php echo '$' . number_format($priceData['GST'], 2, '.', ',') ?></td>
             </tr>
 
         </table>

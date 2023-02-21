@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="mobile-number">Mobile Number:</label>
 
-            <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}">
+            <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number">
 
           </fieldset>
 
