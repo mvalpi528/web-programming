@@ -590,12 +590,12 @@ function generateDebugModule()
         <hr>
         <h3>Debug Area</h3>
         <pre>
-      GET Contains:
-      <?php print_r($_GET) ?>
-      POST Contains:
-      <?php print_r($_POST) ?>
-      SESSION Contains:
-      <?php print_r($_SESSION) ?>
-      </aside>
-  CDATA;
+      GET Contains: <br>
+      CDATA;
+  print_r($_GET);
+  echo 'POST Contains:' . '<br>';
+  print_r($_POST);
+  echo 'SESSION Contains:' . '<br>';
+  print_r($_SESSION);
+  echo "</aside>";
 }

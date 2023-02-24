@@ -5,14 +5,11 @@
 */
 
 
-$errors = []; // new empty array to return multiple error messages
-
-
 function validateBooking()
 {
-  global $errors;
+  global $errorMessages;
   // clearing the errors array each time the function is called
-  array_splice($errors, 0, count($errors));
+  array_splice($errorMessages, 0, count($errorMessages));
   // clearing the session each time the function is called
   session_unset();
 
@@ -121,52 +118,55 @@ function isInvalidSeatsQuantity($numOfSeatTypeOrdered)
 
 function isValidName()
 {
+  global $errorMessages;
   $username = trim($_POST['user']['name']);
 
-  if ($username == '') {
-    $errors['user']['name'] = "Name can't be blank";
+  if ($_POST['user']['name'] == '') {
+    $errorMessages['user']['name'] = "You must enter a username";
   } else {
     if (!preg_match("/^[a-zA-Z ]*$/", $username)) {
-      $errors['user']['name'] = "Name can only contain letters and whitespace";
+      $errorMessages['user']['name'] = "Name can only contain letters and whitespace";
     }
   }
 }
 
 function isValidEmail()
 {
+  global $errorMessages;
   $email = trim($_POST['user']['email']);
   if ($email == '') {
-    $errors['user']['email'] = "Email can't be blank";
+    $errorMessages['user']['email'] = "Please enter a valid email address";
   } else {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
       return;
     } else {
-      $errors['user']['email'] = "Please enter a valid email address";
+      $errorMessages['user']['email'] = "Please enter a valid email address";
     }
   }
 }
 
 function isValidPhoneNumber()
 {
+  global $errorMessages;
   $phoneNumber = trim($_POST['user']['mobile']);
   if ($phoneNumber == '') {
-    $errors['user']['mobile'] = "Mobile can't be blank";
+    $errorMessages['user']['mobile'] = "Please enter a valid Australian mobile number";
   } else {
     if (preg_match("/^[0-9]{10}$/", $phoneNumber)) {
       return;
     } else {
-      $errors['user']['mobile'] = "Please enter a valid mobile number";
+      $errorMessages['user']['mobile'] = "Please enter valid Australian mobile number - (10 digits no punctuation)";
     }
   }
 }
 
 function isAtLeastOneSeatSelected()
 {
-  global $errors;
+  global $errorMessages;
   $totalSeatsSelected = $_POST['standard-adult-seats'] + $_POST['standard-concession-seats'] + $_POST['standard-child-seats'] + $_POST['first-class-adult-seats'] + $_POST['first-class-concession-seats'] + $_POST['first-class-child-seats'];
 
   if ($totalSeatsSelected == 0) {
-    $errors['seats'] = "Please select at least one seat";
+    $errorMessages['seats'] = "Please select at least one seat";
   }
 }
 

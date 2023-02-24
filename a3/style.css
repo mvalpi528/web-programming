@@ -280,6 +280,13 @@ nav a {
   transform: scale(1);
 }
 
+nav a.current {
+  background-color: #fff;
+  color: black;
+  border: solid 1px black;
+  transition: 0.3s;
+}
+
 /* LoVe HAte */
 
 /* Link and visited not included - there is no need to indicate which links in the nav bar have been visitied in this situation and the link state has already been handled by the 'nav a' selector above */

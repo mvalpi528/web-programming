@@ -150,6 +150,7 @@ include('tools.php');
   </main>
 
   <?php generateFooter() ?>
+  <?php generateDebugModule() ?>
 
 </body>
 

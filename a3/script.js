@@ -1,6 +1,16 @@
 /* Insert your javascript here */
 window.onscroll = function () {
-  console.log("Win Y: " + window.scrollY);
+  // console.log("Win Y: " + window.scrollY);
+  for (let i = 0; i < sections.length; i++) {
+    let sectionTop = sections[i].offsetTop - 100;
+    let sectionBottom = sections[i].offsetTop + sections[i].offsetHeight - 100;
+    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+      navLinks[i].classList.add("current");
+      //console.log(`Section ${sectionTop} ${sectionBottom}`);
+    } else {
+      navLinks[i].classList.remove("current");
+    }
+  }
 };
 
 const navLinks = document
@@ -11,8 +21,11 @@ const sections = document
   .getElementsByTagName("main")[0]
   .getElementsByTagName("section");
 
-console.log(sections);
-console.log(sections[0].offsetTop + "");
+// console.log(navLinks);
+// console.log(sections);
+// console.log(
+//   `${sections[0].offsetTop} ${sections[0].offsetTop + sections[0].offsetHeight}`
+// );
 
 // 5.1 REGEX Validation
 
@@ -299,34 +312,34 @@ function calculatePrice() {
 
   let totalCostOfStandardAdultSeats =
     standardAdultSeatPrice * numStandardAdultSeats;
-  console.log(
-    `Your subtotal for standard adult seats selected is: $${totalCostOfStandardAdultSeats} - $${standardAdultSeatPrice} x ${numStandardAdultSeats} seats`
-  );
+  // console.log(
+  //   `Your subtotal for standard adult seats selected is: $${totalCostOfStandardAdultSeats} - $${standardAdultSeatPrice} x ${numStandardAdultSeats} seats`
+  // );
   let totalCostOfStandardConcessionSeats =
     standardConcessionSeatPrice * numStandardConcessionSeats;
-  console.log(
-    `Your subtotal for standard concession seats selected is: $${totalCostOfStandardConcessionSeats} - $${standardConcessionSeatPrice} x ${numStandardConcessionSeats} seats`
-  );
+  // console.log(
+  //   `Your subtotal for standard concession seats selected is: $${totalCostOfStandardConcessionSeats} - $${standardConcessionSeatPrice} x ${numStandardConcessionSeats} seats`
+  // );
   let totalCostOfStandardChildSeats =
     standardChildSeatPrice * numStandardChildSeats;
-  console.log(
-    `Your subtotal for standard child seats selected is: $${totalCostOfStandardChildSeats} - $${standardChildSeatPrice} x ${numStandardChildSeats} seats`
-  );
+  // console.log(
+  //   `Your subtotal for standard child seats selected is: $${totalCostOfStandardChildSeats} - $${standardChildSeatPrice} x ${numStandardChildSeats} seats`
+  // );
   let totalCostOfFirstClassAdultSeats =
     firstClassAdultSeatPrice * numFirstClassAdultSeats;
-  console.log(
-    `Your subtotal for first class adult seats selected is: $${totalCostOfFirstClassAdultSeats} - $${firstClassAdultSeatPrice} x ${numFirstClassAdultSeats} seats`
-  );
+  // console.log(
+  //   `Your subtotal for first class adult seats selected is: $${totalCostOfFirstClassAdultSeats} - $${firstClassAdultSeatPrice} x ${numFirstClassAdultSeats} seats`
+  // );
   let totalCostOfFirstClassConcessionSeats =
     firstClassConcessionSeatPrice * numFirstClassConcessionSeats;
-  console.log(
-    `Your subtotal for first class concession seats selected is: $${totalCostOfFirstClassConcessionSeats} - $${firstClassConcessionSeatPrice} x ${numFirstClassConcessionSeats} seats`
-  );
+  // console.log(
+  //   `Your subtotal for first class concession seats selected is: $${totalCostOfFirstClassConcessionSeats} - $${firstClassConcessionSeatPrice} x ${numFirstClassConcessionSeats} seats`
+  // );
   let totalCostOfFirstClassChildSeats =
     firstClassChildSeatPrice * numFirstClassChildSeats;
-  console.log(
-    `Your subtotal for first class child seats selected is: $${totalCostOfFirstClassChildSeats} - $${firstClassChildSeatPrice} x ${numFirstClassChildSeats} seats`
-  );
+  // console.log(
+  //   `Your subtotal for first class child seats selected is: $${totalCostOfFirstClassChildSeats} - $${firstClassChildSeatPrice} x ${numFirstClassChildSeats} seats`
+  // );
 
   let totalPrice =
     totalCostOfStandardAdultSeats +
@@ -336,10 +349,10 @@ function calculatePrice() {
     totalCostOfFirstClassConcessionSeats +
     totalCostOfFirstClassChildSeats;
 
-  console.log("The total price of your order is: $" + totalPrice);
-  console.log(
-    `The breakdown of your order is ${totalCostOfStandardAdultSeats} + ${totalCostOfStandardConcessionSeats} + ${totalCostOfStandardChildSeats} + ${totalCostOfFirstClassAdultSeats} + ${totalCostOfFirstClassConcessionSeats} + ${totalCostOfFirstClassChildSeats}`
-  );
+  // console.log("The total price of your order is: $" + totalPrice);
+  // console.log(
+  //   `The breakdown of your order is ${totalCostOfStandardAdultSeats} + ${totalCostOfStandardConcessionSeats} + ${totalCostOfStandardChildSeats} + ${totalCostOfFirstClassAdultSeats} + ${totalCostOfFirstClassConcessionSeats} + ${totalCostOfFirstClassChildSeats}`
+  // );
 
   if (totalPrice !== 0 && totalPrice !== NaN) {
     document.getElementById("total-price").innerHTML =

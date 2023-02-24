@@ -4,18 +4,15 @@ include('tools.php');
 
 isValidMovieCode();
 
-$errorMessages = [];
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // the script will only run once
   // the difference between include and require is that if the file that
   // is 'required' is not found then a fatal error is generated
   require_once('post-validation.php');
   if (!empty($_POST)) {
+    $errorMessages = [];
     validateBooking();
-    $errorMessages = findBookingErrors();
   }
-
   // if there are no errors then add the post data to the session
   if (count($errorMessages) == 0) {
     $_SESSION = $_POST;
@@ -118,30 +115,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <legend>Contact Information</legend>
 
             <label for="name">Name:</label>
-
+            <span class="error"><?php if (isset($errorMessages['user']['name'])) {
+                                  echo $errorMessages['user']['name'];
+                                } ?></span>
             <input type="text" id="name" name="user[name]" required title="Name must include only letters" pattern="[-A-Za-z '.]{1,64}" value="<?php if (!empty($_POST['user']['name'])) {
                                                                                                                                                   echo $_POST['user']['name'];
                                                                                                                                                 } ?>">
 
-            <?php if (isset($errorMessages['user']['name'])) {
-              echo $errorMessages['user']['name'];
-            } ?>
+
 
             <label for="email">Email Address:</label>
 
+            <span class="error"><?php if (isset($errorMessages['user']['email'])) {
+                                  echo $errorMessages['user']['email'];
+                                } ?> </span>
             <input type="email" id="email" name="user[email]" required value="<?php if (!empty($_POST['user']['email'])) {
                                                                                 echo $_POST['user']['email'];
                                                                               } ?>">
 
-            <?php if (isset($errorMessages['user']['email'])) {
-              echo $errorsMessages['user']['email'];
-            } ?>
+
 
             <label for="mobile-number">Mobile Number:</label>
 
-            <?php if (isset($errorMessages['user']['mobile'])) {
-              echo $errorsMessages['user']['mobile'];
-            } ?>
+            <span class="error"><?php if (isset($errorMessages['user']['mobile'])) {
+                                  echo $errorMessages['user']['mobile'];
+                                } ?></span>
 
             <input type="tel" id="mobile-number" name="user[mobile]" required pattern="(\(04\)|04|\+614)( ?\d){8}" title="Please enter a valid Australian Mobile Number" value="<?php if (!empty($_POST['user']['mobile'])) {
                                                                                                                                                                                   echo $_POST['user']['mobile'];
@@ -154,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <fieldset>
             <legend>Seats</legend>
             <span class='error'><?php if (isset($errorMessages['seats'])) {
-                                  echo $errorsMessages['seats'];
+                                  echo $errorMessages['seats'];
                                 }  ?></span>
             <label for="standard-adult-seats">Standard Adult Seats</label>
             <select name="standard-adult-seats" id="standard-adult-seats" data-fullprice="21.5" data-discprice="16" onchange="calculatePrice()">
@@ -280,21 +278,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   </main>
   <?php generateFooter() ?>
+  <?php generateDebugModule() ?>
 
-  <aside id="debug">
-    <hr>
-    <h3>Debug Area</h3>
-    <pre>
-GET Contains:
-<?php print_r($_GET) ?>
-POST Contains:
-<?php print_r($_POST) ?>
-SESSION Contains:
-<?php print_r($_SESSION) ?>
-ERRORS Contains:
-<?php print_r($errorMessages) ?>
-      </pre>
-  </aside>
+  <?php print_r($errorMessages); ?>
+
+
 
 </body>
 

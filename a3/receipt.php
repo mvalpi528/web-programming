@@ -35,11 +35,9 @@ $priceData = calculatePrice();
 </head>
 
 <body>
-    <header>
-        <h1>Lunardo Cinemas</h1>
-    </header>
+    <?php generateHeader(); ?>
 
-    <div class="invoice-box">
+    <div class="container">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
@@ -166,20 +164,10 @@ $priceData = calculatePrice();
         </table>
     </div>
 
+    <?php generateDebugModule() ?>
 
 
-    <aside id="debug">
-        <hr>
-        <h3>Debug Area</h3>
-        <pre>
-GET Contains:
-<?php print_r($_GET) ?>
-POST Contains:
-<?php print_r($_POST) ?>
-SESSION Contains:
-<?php print_r($_SESSION) ?>
-      </pre>
-    </aside>
+
 
 </body>
 
