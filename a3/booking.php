@@ -280,7 +280,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php generateFooter() ?>
   <?php generateDebugModule() ?>
 
-  <?php print_r($errorMessages); ?>
+
 
 
 
