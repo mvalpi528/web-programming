@@ -4,18 +4,21 @@ include('search-bookings.php');
 searchBookings();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    session_unset();
-    $_SESSION['user']['name'] = $bookingData['name'];
-    $_SESSION['user']['email'] = $bookingData['email'];
-    $_SESSION['user']['mobile'] = $bookingData['mobile'];
-    $_SESSION['movie'] = $bookingData['movie-code'];
-    $_SESSION['day'] = $bookingData['day-of-movie'];
-    $_SESSION['standard-adult-seats'] = $bookingData['#STA'];
-    $_SESSION['standard-concession-seats'] = $bookingData['#STP'];
-    $_SESSION['standard-child-seats'] = $bookingData['#STC'];
-    $_SESSION['first-class-adult-seats'] = $bookingData['#FCA'];
-    $_SESSION['first-class-concession-seats'] = $bookingData['#FCP'];
-    $_SESSION['first-class-child-seats'] = $bookingData['#FCC'];
+
+    if (searchBookings()) {
+        session_unset();
+        $_SESSION['user']['name'] = $bookingData['name'];
+        $_SESSION['user']['email'] = $bookingData['email'];
+        $_SESSION['user']['mobile'] = $bookingData['mobile'];
+        $_SESSION['movie'] = $bookingData['movie-code'];
+        $_SESSION['day'] = $bookingData['day-of-movie'];
+        $_SESSION['standard-adult-seats'] = $bookingData['#STA'];
+        $_SESSION['standard-concession-seats'] = $bookingData['#STP'];
+        $_SESSION['standard-child-seats'] = $bookingData['#STC'];
+        $_SESSION['first-class-adult-seats'] = $bookingData['#FCA'];
+        $_SESSION['first-class-concession-seats'] = $bookingData['#FCP'];
+        $_SESSION['first-class-child-seats'] = $bookingData['#FCC'];
+    }
 }
 
 ?>
