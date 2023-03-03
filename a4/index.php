@@ -147,6 +147,8 @@ include('tools.php');
 
     </section>
 
+    <?php generateBookingsSearchInputFields() ?>
+
   </main>
 
   <?php generateFooter() ?>

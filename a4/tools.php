@@ -606,6 +606,20 @@ function generateDebugModule()
 function generateBookingsSearchInputFields()
 {
   echo <<<"CDATA"
-        
+        <form action="currentbookings.php" target="_blank" class="booking_form" method="post">
+        <h3>Find a booking</h3>
+        <p>To find a booking, enter your email and mobile number</p>
+        <label for="email-search">Email: </label>
+        <input type="email" id="email-search" name="search[email]" required>
+        <br>
+        <label for="mobile-search">Mobile: </label>
+        <input type="tel" id="mobile-search" name="search[mobile]" required>
+        <br>
+        <button type="submit" class="submit-booking">Submit</button>
+      </form>
       CDATA;
+}
+
+function generateSearchResult()
+{
 }
