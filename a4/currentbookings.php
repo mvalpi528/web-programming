@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </table>
         </div>
         <form action="receipt.php" target="_blank" class="booking_form" method="post">
-            <button type="submit" class="submit-booking">View as receipt</button>
+            <button type="submit" class="submit-booking">View as receipt </button>
         </form>
     <?php
     } else {
