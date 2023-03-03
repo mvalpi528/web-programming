@@ -363,3 +363,61 @@ function calculatePrice() {
     document.getElementById("total-price").innerHTML = "Current Total: ";
   }
 }
+
+function rememberClientDetails() {
+  console.log("hello from remember client details");
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const mobileNumber = document.getElementById("mobile-number").value;
+
+  if (name !== "") {
+    localStorage.setItem("name", name);
+  }
+
+  if (email !== "") {
+    localStorage.setItem("email", email);
+  }
+
+  if (mobileNumber !== "") {
+    localStorage.setItem("mobile-number", mobileNumber);
+  }
+
+  localStorage.setItem("remember-me", "true");
+}
+
+function forgetClientDetails() {
+  localStorage.removeItem("name");
+  localStorage.removeItem("email");
+  localStorage.removeItem("mobile-number");
+
+  let nameField = document.getElementById("name");
+  let emailField = document.getElementById("email");
+  let mobileNumberField = document.getElementById("mobile-number");
+
+  nameField.value = "";
+  emailField.value = "";
+  mobileNumberField.value = "";
+
+  localStorage.setItem("remember-me", "false");
+}
+
+window.onload = function () {
+  let rememberClientDetails = localStorage.getItem("remember-me");
+
+  if (rememberClientDetails === "true") {
+    let nameField = document.getElementById("name");
+    let emailField = document.getElementById("email");
+    let mobileNumberField = document.getElementById("mobile-number");
+
+    nameField.value = localStorage.getItem("name");
+    emailField.value = localStorage.getItem("email");
+    mobileNumberField.value = localStorage.getItem("mobile-number");
+
+    document.getElementById("remember-me").checked = true;
+  }
+
+  if (rememberClientDetails === "false") {
+    document.getElementById("forget-me").checked = true;
+  }
+};

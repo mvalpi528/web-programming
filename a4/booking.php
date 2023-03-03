@@ -267,8 +267,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <button type="submit" class="submit-booking">Submit</button>
 
+
+
         <p id="total-price">Current Total:</p>
       </form>
+
+
+      <fieldset>
+        <legend>Want to come back later?</legend>
+        <input type="radio" id="remember-me" name="remember-or-forget-user-details" value="remember-me" onchange="rememberClientDetails()">
+        <label for="remember-me">Remember me</label>
+        <input type="radio" id="forget-me" name="remember-or-forget-user-details" value="forget-me" onchange="forgetClientDetails()">
+        <label for="forget-me">Forget me</label>
+      </fieldset>
+
 
 
     </section>

@@ -551,6 +551,9 @@ fieldset input[type="radio"] + label {
   padding: 10px 15px;
   font-weight: bold;
   border-radius: 5px;
+  width: 200px;
+  max-width: 200px;
+  margin: auto;
 }
 
 fieldset input[type="radio"]:checked + label {
