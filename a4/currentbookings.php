@@ -2,6 +2,22 @@
 include('tools.php');
 include('search-bookings.php');
 searchBookings();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    session_unset();
+    $_SESSION['user']['name'] = $bookingData['name'];
+    $_SESSION['user']['email'] = $bookingData['email'];
+    $_SESSION['user']['mobile'] = $bookingData['mobile'];
+    $_SESSION['movie'] = $bookingData['movie-code'];
+    $_SESSION['day'] = $bookingData['day-of-movie'];
+    $_SESSION['standard-adult-seats'] = $bookingData['#STA'];
+    $_SESSION['standard-concession-seats'] = $bookingData['#STP'];
+    $_SESSION['standard-child-seats'] = $bookingData['#STC'];
+    $_SESSION['first-class-adult-seats'] = $bookingData['#FCA'];
+    $_SESSION['first-class-concession-seats'] = $bookingData['#FCP'];
+    $_SESSION['first-class-child-seats'] = $bookingData['#FCC'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +48,7 @@ searchBookings();
     if (searchBookings()) {
 
     ?>
-        <h1 id="search-heading">Your booking details</h1>
+        <h1 class="search-heading">Your booking details</h1>
         <div class="container">
             <table cellpadding="0" cellspacing="0">
                 <tr class="top">
@@ -167,7 +183,13 @@ searchBookings();
 
             </table>
         </div>
+        <form action="receipt.php" target="_blank" class="booking_form" method="post">
+            <button type="submit" class="submit-booking">View as receipt</button>
+        </form>
     <?php
+    } else {
+        echo "<h1 class='search-heading'>Booking not found</h1>";
+        echo "<h3 class='search-heading'>Please return to the home page or bookings page to search again</h3>";
     }
 
     ?>

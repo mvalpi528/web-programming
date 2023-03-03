@@ -642,7 +642,7 @@ fieldset input[type="radio"]:checked + label {
   }
 }
 
-#search-heading {
+.search-heading {
   text-align: center;
   margin-top: 25px;
 }
