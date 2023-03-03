@@ -364,6 +364,8 @@ function calculatePrice() {
   }
 }
 
+// Remember me functionality
+
 function rememberClientDetails() {
   console.log("hello from remember client details");
 

@@ -599,3 +599,13 @@ function generateDebugModule()
   print_r($_SESSION);
   echo "</aside>";
 }
+
+
+
+
+function generateBookingsSearchInputFields()
+{
+  echo <<<"CDATA"
+        
+      CDATA;
+}
